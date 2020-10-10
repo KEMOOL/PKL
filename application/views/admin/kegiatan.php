@@ -1,0 +1,90 @@
+<main>
+    <div class="container-fluid">
+        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-0 text-gray-800"><?= $kegiatan['nama'] ?></h1>
+        </div>
+        <form class="formKegiatan" id="formKegiatan">
+            <div class="form-group fotoketerangan">
+                <label for="fotoBagian1">Foto Bagian 1</label>
+                <div class="card p-3 mb-3">
+                    <img id="fotoBagian1" src="<?= base_url() ?>assets/img/kegiatan/<?= $kegiatan['gambar1'] ?>" class="img-thumbnail">
+                </div>
+                <div class="file-upload-wrapper mb-4">
+                    <label for="image">Foto Baru</label>
+                    <input type="file" id="image1" name="image1" class="file-upload" data-max-file-size="2M" />
+                </div>
+            </div>
+            <div class="form-group mb-4">
+                <label for="1">Isi Bagian 1</label>
+                <textarea name="editor1" class="ckeditor"><?= $kegiatan['isi1'] ?></textarea>
+            </div>
+            <div class="form-group fotoketerangan">
+                <label for="fotoBagian1">Foto Bagian 2</label>
+                <div class="card p-3 mb-3">
+                    <img id="fotoBagian1" src="<?= base_url() ?>assets/img/kegiatan/<?= $kegiatan['gambar2'] ?>" class="img-thumbnail">
+                </div>
+                <div class="file-upload-wrapper mb-4">
+                    <label for="image">Foto Baru</label>
+                    <input type="file" id="image2" name="image2" class="file-upload" data-max-file-size="2M" />
+                </div>
+            </div>
+            <div class="form-group mb-4">
+                <label for="isiBagian2">Isi Bagian 2</label>
+                <textarea name="editor2" class="ckeditor"><?= $kegiatan['isi2'] ?></textarea>
+            </div>
+            <?php if ($this->session->userdata('level') == 'admin') { ?>
+                <div class="row">
+                    <div class="col-auto mr-auto">
+                        <button type="button" class="btn btn-primary btn-sm btn-rounded waves-effect waves-light" id="simpanKegiatan" onclick="simpanKegiatanLama(<?= $kegiatan['id'] ?>)">Perbarui</button>
+                    </div>
+                    <div class="col-auto">
+                        <button type="button" class="btn btn-danger btn-sm btn-rounded waves-effect waves-light" id="hapusKegiatan" onclick="hapusKegiatanId(<?= $kegiatan['id'] ?>)">Hapus</button>
+                    </div>
+                </div>
+            <?php } ?>
+        </form>
+        <div class="modal fade" id="modalHapus" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-notify modal-danger" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <p class="heading lead">Hapus Kegiatan</p>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true" class="white-text">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="text-center">
+                            <i class="fas fa-times fa-4x mb-3 animated rotateIn"></i>
+                            <p>Apakah anda yakin akan menghapus kegiatan "<?= $kegiatan['nama'] ?>"</p>
+                        </div>
+                    </div>
+                    <div class="modal-footer justify-content-center">
+                        <a type="button" class="btn btn-danger" id="konfirmasiHapusKegiatan">Hapus</i></a>
+                        <a type="button" class="btn btn-outline-danger waves-effect" data-dismiss="modal">Kembali</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<div class="modal fade" id="centralModalSuccess" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm modal-notify modal-success" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <p class="heading lead">Berhasil</p>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true" class="white-text">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="text-center">
+                    <i class="fas fa-check fa-4x mb-3 animated rotateIn"></i>
+                    <p>Kegiatan berhasil diperbarui</p>
+                </div>
+            </div>
+            <div class="modal-footer justify-content-center">
+                <a type="button" class="btn btn-outline-success waves-effect" data-dismiss="modal">OK</a>
+            </div>
+        </div>
+    </div>
+</div>

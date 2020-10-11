@@ -9,7 +9,7 @@ class Arsip extends CI_Controller
 
         $config['base_url'] = base_url() . 'arsip/index';
         $config['total_rows'] = $this->perpus->countTotalArsip();
-        $config['per_page'] = 10;
+        $config['per_page'] = 2;
 
         $config['full_tag_open'] = '<nav><ul class="pagination pagination-circle pg-dark justify-content-center">';
         $config['full_tag_close'] = '</ul></nav>';
@@ -52,9 +52,9 @@ class Arsip extends CI_Controller
 
     public function detail()
     {
-        $id = $this->uri->segment(3);
-        if ($id) {
-            $arsip = $this->perpus->getDetailArsip($id);
+        $id_arsip = $this->uri->segment(3);
+        if ($id_arsip) {
+            $arsip = $this->perpus->getDetailArsip($id_arsip);
 
             if ($arsip) {
                 $data['title'] = 'Arsip';
@@ -69,7 +69,6 @@ class Arsip extends CI_Controller
                 redirect('my404');
             }
         } else {
-
             redirect('arsip');
         }
     }

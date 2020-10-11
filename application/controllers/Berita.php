@@ -52,9 +52,9 @@ class Berita extends CI_Controller
 
     public function detail()
     {
-        $id = $this->uri->segment(3);
-        if ($id) {
-            $berita = $this->perpus->getDetailBerita($id);
+        $id_berita = $this->uri->segment(3);
+        if ($id_berita) {
+            $berita = $this->perpus->getDetailBerita($id_berita);
 
             if ($berita) {
                 $data['title'] = 'Berita';
@@ -69,7 +69,6 @@ class Berita extends CI_Controller
                 redirect('my404');
             }
         } else {
-
             redirect('berita');
         }
     }
@@ -78,6 +77,7 @@ class Berita extends CI_Controller
     {
         $data = $this->perpus->getListBerita();
 
-        echo json_encode($data);
+        // echo json_encode($data);
+        return $this->output->set_output(json_encode($data));
     }
 }

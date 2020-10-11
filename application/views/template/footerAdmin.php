@@ -8,16 +8,16 @@
     </div>
 </footer>
 
-<script src="<?= base_url(); ?>assets/js/jquery-3.3.1.min.js"></script>
-<script type="text/javascript" src="<?= base_url(); ?>assets/js/popper.min.js"></script>
-<script type="text/javascript" src="<?= base_url(); ?>assets/js/bootstrap.js"></script>
-<script type="text/javascript" src="<?= base_url(); ?>assets/js/mdb.min.js"></script>
-<script src="<?= base_url(); ?>assets/ckeditor/ckeditor.js"></script>
-<script src="<?= base_url(); ?>assets/datatables/jquery.dataTables.js"></script>
-<script src="<?= base_url(); ?>assets/datatables/datatables-select.min.js"></script>
-<script src="<?= base_url(); ?>assets/datatables/dataTables.bootstrap4.min.js"></script>
-<script src="<?= base_url(); ?>assets/js/file-upload.js"></script>
-<script type="text/javascript" src="<?= base_url(); ?>assets/js/admin.js"></script>
+<script src="<?= filter_var(base_url(), FILTER_DEFAULT); ?>assets/js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="<?= filter_var(base_url(), FILTER_DEFAULT); ?>assets/js/popper.min.js"></script>
+<script type="text/javascript" src="<?= filter_var(base_url(), FILTER_DEFAULT); ?>assets/js/bootstrap.js"></script>
+<script type="text/javascript" src="<?= filter_var(base_url(), FILTER_DEFAULT); ?>assets/js/mdb.min.js"></script>
+<script src="<?= filter_var(base_url(), FILTER_DEFAULT); ?>assets/ckeditor/ckeditor.js"></script>
+<script src="<?= filter_var(base_url(), FILTER_DEFAULT); ?>assets/datatables/jquery.dataTables.js"></script>
+<script src="<?= filter_var(base_url(), FILTER_DEFAULT); ?>assets/datatables/datatables-select.min.js"></script>
+<script src="<?= filter_var(base_url(), FILTER_DEFAULT); ?>assets/datatables/dataTables.bootstrap4.min.js"></script>
+<script src="<?= filter_var(base_url(), FILTER_DEFAULT); ?>assets/js/file-upload.js"></script>
+<script type="text/javascript" src="<?= filter_var(base_url(), FILTER_DEFAULT); ?>assets/js/admin.js"></script>
 
 <script>
     // SideNav Initialization
@@ -82,7 +82,7 @@
             "order": [],
 
             "ajax": {
-                "url": "<?= base_url('admin/get_data_user') ?>",
+                "url": "<?= filter_var(base_url('admin/get_data_user'), FILTER_DEFAULT) ?>",
                 "type": "POST"
             },
 

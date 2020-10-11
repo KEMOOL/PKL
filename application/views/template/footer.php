@@ -25,16 +25,16 @@
     </div>
 </footer>
 
-<script src="<?= base_url(); ?>assets/js/jquery-3.4.1.js"></script>
-<script src="<?= base_url(); ?>assets/js/bootstrap.bundle.js"></script>
-<script src="<?= base_url(); ?>assets/js/bootstrap.js"></script>
-<script src="<?= base_url(); ?>assets/js/jssor.slider-28.0.0.min.js"></script>
-<script src="<?= base_url(); ?>assets/ckeditor/ckeditor.js"></script>
-<script src="<?= base_url(); ?>assets/js/mdb.min.js"></script>
-<script src="<?= base_url(); ?>assets/js/mdb-plugins-gathered.min.js"></script>
-<script src="<?= base_url(); ?>assets/js/global.js"></script>
-<script src="<?= base_url(); ?>assets/js/1e8c01e17b.js"></script>
-<script src="<?= base_url(); ?>assets/js/file-upload.js"></script>
+<script src="<?= filter_var(base_url(), FILTER_DEFAULT); ?>assets/js/jquery-3.4.1.js"></script>
+<script src="<?= filter_var(base_url(), FILTER_DEFAULT); ?>assets/js/bootstrap.bundle.js"></script>
+<script src="<?= filter_var(base_url(), FILTER_DEFAULT); ?>assets/js/bootstrap.js"></script>
+<script src="<?= filter_var(base_url(), FILTER_DEFAULT); ?>assets/js/jssor.slider-28.0.0.min.js"></script>
+<script src="<?= filter_var(base_url(), FILTER_DEFAULT); ?>assets/ckeditor/ckeditor.js"></script>
+<script src="<?= filter_var(base_url(), FILTER_DEFAULT); ?>assets/js/mdb.min.js"></script>
+<script src="<?= filter_var(base_url(), FILTER_DEFAULT); ?>assets/js/mdb-plugins-gathered.min.js"></script>
+<script src="<?= filter_var(base_url(), FILTER_DEFAULT); ?>assets/js/global.js"></script>
+<script src="<?= filter_var(base_url(), FILTER_DEFAULT); ?>assets/js/1e8c01e17b.js"></script>
+<script src="<?= filter_var(base_url(), FILTER_DEFAULT); ?>assets/js/file-upload.js"></script>
 
 <script type="text/javascript" src="http://malsup.github.com/jquery.media.js"></script>
 

@@ -19,31 +19,31 @@
 <div class="bukuPopuler">
     <div class="row listBuku" id="listBuku">
         <?php
-        foreach ($buku as $buku) {
+        foreach ($buku as $buku) :
             $judul = '';
             $judul = explode("/", $buku['Title']);
-
-            echo '<div class="col-sm">';
-            echo '<a href="' . base_url() . 'buku/' . $buku['ID'] . '">';
-            echo '<div class="card cardBuku">';
-            echo '<div class="card-header">';
-            $filename = './assets/img/cover/' . $buku['ID'] . '.jpg';
-            if (file_exists($filename)) {
-                echo '<img src="' . base_url() . 'assets/img/cover/' . $buku['ID'] . '.jpg" class="imgKoleksiBuku">';
-            } else {
-                echo '<img src="' . base_url() . 'assets/img/cover/tdkada.gif" class="imgKoleksiBuku">';
-            }
-            echo '</div>';
-            echo '<div class="card-body" style="color:black;">';
-            echo $judul[0];
-            echo '</div>';
-            echo '</div>';
-            echo '</a>';
-            echo '</div>';
-        }
         ?>
+            <div class="col-sm">
+                <a href="<?= filter_var(base_url(), FILTER_DEFAULT) ?>buku/<?= filter_var($buku['ID'], FILTER_DEFAULT) ?>">
+                    <div class="card cardBuku">
+                        <div class="card-header">
+                            <?php
+                            $filename = './assets/img/cover/' . $buku['ID'] . '.jpg';
+                            if (file_exists($filename)) { ?>
+                                <img src="<?= filter_var(base_url(), FILTER_DEFAULT) ?>assets/img/cover/<?= filter_var($buku['ID'], FILTER_DEFAULT) ?>.jpg" class="imgKoleksiBuku">
+                            <?php } else { ?>
+                                <img src="<?= filter_var(base_url(), FILTER_DEFAULT) ?>assets/img/cover/tdkada.gif" class="imgKoleksiBuku">
+                            <?php } ?>
+                        </div>
+                        <div class="card-body" style="color:black;">
+                            <?= filter_var($judul[0], FILTER_DEFAULT) ?>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        <?php endforeach; ?>
     </div>
     <div class="paginationn">
-        <?= $this->pagination->create_links(); ?>
+        <?= filter_var($this->pagination->create_links(), FILTER_DEFAULT) ?>
     </div>
 </div>

@@ -3,24 +3,21 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Buku extends CI_Controller
 {
-    function _remap($id)
+    function _remap($id_buku)
     {
-        $this->index($id);
+        $this->index($id_buku);
     }
-    public function index($id)
+    public function index($id_buku)
     {
-        if ($id != 'index') {
+        $buku = $this->perpus->getDetailBukuId($id_buku);
+        if ($buku) {
             $data['listKegiatan'] = $this->perpus->getListKegiatan();
-            $data['buku'] = $this->perpus->getDetailBukuId($this->uri->segment(2));
+            $data['buku'] = $buku;
             $data['title'] = $data['buku']['Title'];
 
-            if ($data['buku']) {
-                $this->load->view('template/navbar', $data);
-                $this->load->view('buku', $data);
-                $this->load->view('template/footer');
-            } else {
-                redirect('my404');
-            }
+            $this->load->view('template/navbar', $data);
+            $this->load->view('buku', $data);
+            $this->load->view('template/footer');
         } else {
             redirect('koleksiBuku');
         }

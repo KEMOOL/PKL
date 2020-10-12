@@ -25,6 +25,6 @@ class PermintaanBuku extends CI_Controller
 
         $this->perpus->simpanPermintaan();
 
-        echo json_encode('sukses');
+        return $this->output->set_output(json_encode('sukses'));
     }
 }

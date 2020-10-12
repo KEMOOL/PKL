@@ -17,6 +17,6 @@ class KotakSaran extends CI_Controller
     {
         $this->perpus->simpanSaran();
 
-        echo json_encode($this->input->post('ditujukan'));
+        return $this->output->set_output(json_encode($this->input->post('ditujukan')));
     }
 }

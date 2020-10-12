@@ -5,20 +5,20 @@
             <!-- Logo -->
             <li class="logo-sn waves-effect py-4">
                 <div class="text-center">
-                    <a href="#" class="pl-0"><img src="<?= base_url() ?>assets/img/logo.png" alt="logo KPAD"></a>
+                    <a href="#" class="pl-0"><img src="<?= filter_var(base_url(), FILTER_DEFAULT) ?>assets/img/logo.png" alt="logo KPAD"></a>
                 </div>
             </li>
 
             <li>
                 <ul class="collapsible collapsible-accordion" style="color:white">
                     <li>
-                        <a href="<?= base_url('admin/dashboard') ?>" class="collapsible-header waves-effect"><i class="w-fa fas fa-tachometer-alt"></i>Dashboards</a>
+                        <a href="<?= filter_var(base_url('admin/dashboard'), FILTER_DEFAULT) ?>" class="collapsible-header waves-effect"><i class="w-fa fas fa-tachometer-alt"></i>Dashboards</a>
                     </li>
                     <li>
-                        <a href="<?= base_url('admin/berita') ?>" class="collapsible-header waves-effect"><i class="w-fa fas fa-newspaper"></i>Berita</a>
+                        <a href="<?= filter_var(base_url('admin/berita'), FILTER_DEFAULT) ?>" class="collapsible-header waves-effect"><i class="w-fa fas fa-newspaper"></i>Berita</a>
                     </li>
                     <li>
-                        <a href="<?= base_url('admin/arsip') ?>" class="collapsible-header waves-effect"><i class="w-fa fas fa-newspaper"></i>Arsip</a>
+                        <a href="<?= filter_var(base_url('admin/arsip'), FILTER_DEFAULT) ?>" class="collapsible-header waves-effect"><i class="w-fa fas fa-newspaper"></i>Arsip</a>
                     </li>
                     <li>
                         <a class="collapsible-header waves-effect arrow-r">
@@ -27,19 +27,19 @@
                         <div class="collapsible-body">
                             <ul>
                                 <li>
-                                    <a href="<?= base_url('admin/koleksiBuku') ?>" class="waves-effect">Koleksi Buku</a>
+                                    <a href="<?= filter_var(base_url('admin/koleksiBuku'), FILTER_DEFAULT) ?>" class="waves-effect">Koleksi Buku</a>
                                 </li>
                                 <li>
-                                    <a href="<?= base_url('admin/bukuPopuler') ?>" class="waves-effect">Buku Populer</a>
+                                    <a href="<?= filter_var(base_url('admin/bukuPopuler'), FILTER_DEFAULT) ?>" class="waves-effect">Buku Populer</a>
                                 </li>
                                 <li>
-                                    <a href="<?= base_url('admin/permintaanBuku') ?>" class="waves-effect">Permintaan Buku</a>
+                                    <a href="<?= filter_var(base_url('admin/permintaanBuku'), FILTER_DEFAULT) ?>" class="waves-effect">Permintaan Buku</a>
                                 </li>
                             </ul>
                         </div>
                     </li>
                     <li>
-                        <a href="<?= base_url('admin/kotakSaran') ?>" class="collapsible-header waves-effect"><i class="w-fa fas fa-comments"></i></i>Komentar Pengunjung</a>
+                        <a href="<?= filter_var(base_url('admin/kotakSaran'), FILTER_DEFAULT) ?>" class="collapsible-header waves-effect"><i class="w-fa fas fa-comments"></i></i>Komentar Pengunjung</a>
                     </li>
                     <li>
                         <a class="collapsible-header waves-effect arrow-r">
@@ -49,13 +49,13 @@
                             <ul>
                                 <?php foreach ($listKegiatan as $listKegiatan) { ?>
                                     <li>
-                                        <a href="<?= base_url() . 'admin/kegiatan/' . $listKegiatan['id'] ?>" class="waves-effect"><?= $listKegiatan['nama'] ?></a>
+                                        <a href="<?= filter_var(base_url(), FILTER_DEFAULT) . 'admin/kegiatan/' . filter_var($listKegiatan['id'], FILTER_DEFAULT) ?>" class="waves-effect"><?= filter_var($listKegiatan['nama'], FILTER_SANITIZE_FULL_SPECIAL_CHARS) ?></a>
                                     </li>
                                 <?php }
                                 if ($this->session->userdata('level') == 'admin') { ?>
 
                                     <li>
-                                        <a href="<?= base_url() . 'admin/tambahKegiatan' ?>" class="waves-effect warning-color">Tambah Kegiatan</a>
+                                        <a href="<?= filter_var(base_url(), FILTER_DEFAULT) . 'admin/tambahKegiatan' ?>" class="waves-effect warning-color">Tambah Kegiatan</a>
                                     </li>
                                 <?php }
                                 ?>
@@ -77,7 +77,6 @@
 
         <!-- Breadcrumb -->
         <div class="breadcrumb-dn mr-auto">
-            <!-- <p><b><?= strtoupper($this->uri->segment(2)) ?></b></p> -->
         </div>
 
         <div class="d-flex change-mode">
@@ -94,17 +93,16 @@
                         <i class="fas fa-user"></i>
                         <span class="clearfix d-none d-sm-inline-block">
                             <?php
-                            if (($this->session->userdata('level') == 'admin')) {
-                                echo 'Admin';
-                            } else {
-                                echo 'Tamu';
-                            }
-                            ?>
+                            if (($this->session->userdata('level') == 'admin')) { ?>
+                                Admin
+                            <?php } else { ?>
+                                Tamu
+                            <?php } ?>
                         </span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
                         <a class="dropdown-item" onclick="ubahPassword()">Ganti Password</a>
-                        <a class="dropdown-item" href="<?= base_url('admin/keluar') ?>">Keluar</a>
+                        <a class="dropdown-item" href="<?= filter_var(base_url('admin/keluar'), FILTER_DEFAULT) ?>">Keluar</a>
                     </div>
                 </li>
             </ul>

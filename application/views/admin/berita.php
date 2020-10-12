@@ -42,7 +42,7 @@
             <div class="card-header py-3">
                 <h5 class="m-0 font-weight-bold text-white">Daftar Berita</h5>
             </div>
-            <?= $this->session->flashdata('pesan'); ?>
+            <?= filter_var($this->session->flashdata('pesan'), FILTER_DEFAULT); ?>
             <div class="card-body">
                 <?php if ($this->session->userdata('level') == 'admin') { ?>
                     <div class="row">

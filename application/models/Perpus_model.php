@@ -207,11 +207,11 @@ class Perpus_model extends CI_Model
         return $this->db->get()->result_array();
     }
 
-    public function getDetailBerita($id)
+    public function getDetailBerita($idBerita)
     {
         $this->db->select('*');
         $this->db->from('berita');
-        $this->db->where('id=', $id);
+        $this->db->where('id=', $idBerita);
 
         return $this->db->get()->row_array();
     }
@@ -224,11 +224,11 @@ class Perpus_model extends CI_Model
         return $this->db->get()->result_array();
     }
 
-    public function getDetailArsip($id)
+    public function getDetailArsip($idArsip)
     {
         $this->db->select('*');
         $this->db->from('arsip');
-        $this->db->where('id=', $id);
+        $this->db->where('id=', $idArsip);
 
         return $this->db->get()->row_array();
     }
@@ -278,11 +278,11 @@ class Perpus_model extends CI_Model
         return $this->db->get('arsip', $limit, $star)->result_array();
     }
 
-    public function getDetailBukuId($id)
+    public function getDetailBukuId($idBuku)
     {
         $this->db->select('*');
         $this->db->from('catalogs');
-        $this->db->like('ID', $id);
+        $this->db->like('ID', $idBuku);
 
         return $this->db->get()->row_array();
     }
@@ -305,11 +305,11 @@ class Perpus_model extends CI_Model
         return $this->db->get()->result_array();
     }
 
-    public function getDetailBukuPopuler($id)
+    public function getDetailBukuPopuler($idBuku)
     {
         $this->db->select('*');
         $this->db->from('bukupopuler');
-        $this->db->where('idbuku', $id);
+        $this->db->where('idbuku', $idBuku);
         $this->db->where('tanggal', tanggal());
 
         return $this->db->get()->row_array();
@@ -395,10 +395,10 @@ class Perpus_model extends CI_Model
         $this->db->insert('arsip', $data);
     }
 
-    public function simpanBukuPopuler($id)
+    public function simpanBukuPopuler($idBuku)
     {
         $data = [
-            'idbuku' => $id,
+            'idbuku' => $idBuku,
             'tanggal' => tanggal()
         ];
 
@@ -418,7 +418,7 @@ class Perpus_model extends CI_Model
         $this->db->insert('kegiatan', $data);
     }
 
-    public function simpanKegiatanLama($id, $image1, $image2)
+    public function simpanKegiatanLama($idKegiatan, $image1, $image2)
     {
         $this->db->set('isi1', $this->input->post('isi1'));
         $this->db->set('isi2', $this->input->post('isi2'));
@@ -428,7 +428,7 @@ class Perpus_model extends CI_Model
         if ($image2 != '') {
             $this->db->set('gambar2', $image2);
         }
-        $this->db->where('id', $id);
+        $this->db->where('id', $idKegiatan);
         $this->db->update('kegiatan');
     }
 
@@ -515,7 +515,7 @@ class Perpus_model extends CI_Model
 
     public function countTotalCari()
     {
-        $cari = $_GET['pencarian'];
+        $cari = $this->input->get('pencarian');
         $this->db->select('*');
         $this->db->from('catalogs');
         $this->db->like('ID', $cari);
@@ -549,7 +549,7 @@ class Perpus_model extends CI_Model
     // }
 
     var $table = 'catalogs'; //nama tabel dari database
-    var $column_order = array(null, 'ControlNumber', 'BIBID', 'Title', 'Author', 'Edition', 'Publisher', 'PublishLocation', 'PublishYear', 'Publikasi', 'Subject', 'PhysicalDescription', 'ISBN', 'CallNumber', 'Note', 'Languages', 'DeweyNo', 'ApproveDateOPAC', 'IsOPAC', 'IsBNI', 'IsKIN', 'IsRDA', 'CoverURL', 'Branch_id', 'Worksheet_id', 'CreateBy', 'CreateDate', 'CreateTerminal', 'UpdateBy', 'UpdateDate', 'UpdateTerminal', 'MARC_LOC', 'PRESERVASI_ID', 'QUARANTINEDBY', 'QUARANTINEDDATE', 'QUARANTINEDTERMINAL', 'Member_id', 'KIILastUploadDate'); //field yang ada di table user
+    var $column_order = array(null, 'Title', 'ISBN', 'Author', 'Edition', 'Publisher', 'PublishLocation', 'PublishYear', 'Publikasi', 'Subject', 'PhysicalDescription', 'ISBN', 'CallNumber', 'Note', 'Languages', 'DeweyNo', 'ApproveDateOPAC', 'IsOPAC', 'IsBNI', 'IsKIN', 'IsRDA', 'CoverURL', 'Branch_id', 'Worksheet_id', 'CreateBy', 'CreateDate', 'CreateTerminal', 'UpdateBy', 'UpdateDate', 'UpdateTerminal', 'MARC_LOC', 'PRESERVASI_ID', 'QUARANTINEDBY', 'QUARANTINEDDATE', 'QUARANTINEDTERMINAL', 'Member_id', 'KIILastUploadDate'); //field yang ada di table user
 
     var $column_search = array('Title', 'ISBN', 'Author', 'Publisher'); //field yang diizin untuk pencarian 
     var $order = array('ID' => 'asc'); // default order 
@@ -559,30 +559,30 @@ class Perpus_model extends CI_Model
 
         $this->db->from('catalogs');
 
-        $i = 0;
+        $index = 0;
 
         foreach ($this->column_search as $item) // loop column 
         {
-            if ($_POST['search']['value']) // if datatable send POST for search
+            if ($this->input->post('search')['value']) // if datatable send POST for search
             {
 
-                if ($i === 0) // first loop
+                if ($index === 0) // first loop
                 {
                     $this->db->group_start(); // open bracket. query Where with OR clause better with bracket. because maybe can combine with other WHERE with AND.
-                    $this->db->like($item, $_POST['search']['value']);
+                    $this->db->like($item, $this->input->post('search')['value']);
                 } else {
-                    $this->db->or_like($item, $_POST['search']['value']);
+                    $this->db->or_like($item, $this->input->post('search')['value']);
                 }
 
-                if (count($this->column_search) - 1 == $i) //last loop
+                if (count($this->column_search) - 1 == $index) //last loop
                     $this->db->group_end(); //close bracket
             }
-            $i++;
+            $index++;
         }
-
-        if (isset($_POST['order'])) // here order processing
+        $isOrder = $this->input->post('order');
+        if (isset($isOrder)) // here order processing
         {
-            $this->db->order_by($this->column_order[$_POST['order']['0']['column']], $_POST['order']['0']['dir']);
+            $this->db->order_by($this->column_order[$this->input->post('order')['0']['column']], $this->input->post('order')['0']['dir']);
         } else if (isset($this->order)) {
             $order = $this->order;
             $this->db->order_by(key($order), $order[key($order)]);
@@ -592,8 +592,8 @@ class Perpus_model extends CI_Model
     function get_datatables()
     {
         $this->_get_datatables_query();
-        if ($_POST['length'] != -1)
-            $this->db->limit($_POST['length'], $_POST['start']);
+        if ($this->input->post('length') != -1)
+            $this->db->limit($this->input->post('length'), $this->input->post('start'));
         $query = $this->db->get();
         return $query->result();
     }

@@ -9,19 +9,16 @@ class Kegiatan extends CI_Controller
     }
     public function index($idKegiatan)
     {
-        if ($this->uri->segment(2)) {
+        $kegiatan = $this->perpus->getDetailKegiatan($idKegiatan);
+
+        if ($kegiatan) {
             $data['title'] = 'Kegiatan';
-            $data['kegiatan'] = $this->perpus->getDetailKegiatan($idKegiatan);
+            $data['kegiatan'] = $kegiatan;
+            $data['listKegiatan'] = $this->perpus->getListKegiatan();
 
-            if ($data['kegiatan']) {
-                $data['listKegiatan'] = $this->perpus->getListKegiatan();
-
-                $this->load->view('template/navbar', $data);
-                $this->load->view('kegiatan');
-                $this->load->view('template/footer');
-            } else {
-                redirect(base_url());
-            }
+            $this->load->view('template/navbar', $data);
+            $this->load->view('kegiatan');
+            $this->load->view('template/footer');
         } else {
             redirect(base_url());
         }

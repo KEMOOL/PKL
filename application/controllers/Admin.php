@@ -7,37 +7,35 @@ class Admin extends CI_Controller
     {
         if (!$this->session->userdata('level')) {
             redirect('admin/masuk');
-        } else {
-            $data['title'] = 'Dashboard | Admin';
-            $data['listKegiatan'] = $this->perpus->getListKegiatan();
-
-            $this->load->view('template/navbarAdmin', $data);
-            $this->load->view('admin/sidebar', $data);
-            $this->load->view('admin/dashboard');
-            $this->load->view('template/footerAdmin');
         }
+        $data['title'] = 'Dashboard | Admin';
+        $data['listKegiatan'] = $this->perpus->getListKegiatan();
+
+        $this->load->view('template/navbarAdmin', $data);
+        $this->load->view('admin/sidebar', $data);
+        $this->load->view('admin/dashboard');
+        $this->load->view('template/footerAdmin');
     }
 
     public function addUser()
     {
         $this->perpus->addUser();
 
-        echo json_encode('sukses bro');
+        return $this->output->set_output(json_encode('sukses bro'));
     }
     //
     public function Arsip()
     {
         if (!$this->session->userdata('level')) {
             redirect('admin/masuk');
-        } else {
-            $data['title'] = 'Arsip | Admin';
-            $data['listKegiatan'] = $this->perpus->getListKegiatan();
-
-            $this->load->view('template/navbarAdmin', $data);
-            $this->load->view('admin/sidebar', $data);
-            $this->load->view('admin/arsip');
-            $this->load->view('template/footerAdmin');
         }
+        $data['title'] = 'Arsip | Admin';
+        $data['listKegiatan'] = $this->perpus->getListKegiatan();
+
+        $this->load->view('template/navbarAdmin', $data);
+        $this->load->view('admin/sidebar', $data);
+        $this->load->view('admin/arsip');
+        $this->load->view('template/footerAdmin');
     }
 
     public function simpanArsip()
@@ -55,7 +53,7 @@ class Admin extends CI_Controller
 
         $this->perpus->simpanArsip($namaImage);
 
-        echo json_encode($this->upload->display_errors());
+        return $this->output->set_output(json_encode($this->upload->display_errors()));
     }
 
     public function getLIstArsip()
@@ -63,7 +61,7 @@ class Admin extends CI_Controller
         $data['arsip'] = $this->perpus->getLIstArsip();
         $data['session'] = $this->session->userdata('level');
 
-        echo json_encode($data);
+        return $this->output->set_output(json_encode($data));
     }
 
     public function hapusArsip()
@@ -74,22 +72,21 @@ class Admin extends CI_Controller
 
         $this->perpus->hapusArsip();
 
-        echo json_encode('sukses');
+        return $this->output->set_output(json_encode('sukses'));
     }
     //
     public function Berita()
     {
         if (!$this->session->userdata('level')) {
             redirect('admin/masuk');
-        } else {
-            $data['title'] = 'Berita | Admin';
-            $data['listKegiatan'] = $this->perpus->getListKegiatan();
-
-            $this->load->view('template/navbarAdmin', $data);
-            $this->load->view('admin/sidebar', $data);
-            $this->load->view('admin/berita');
-            $this->load->view('template/footerAdmin');
         }
+        $data['title'] = 'Berita | Admin';
+        $data['listKegiatan'] = $this->perpus->getListKegiatan();
+
+        $this->load->view('template/navbarAdmin', $data);
+        $this->load->view('admin/sidebar', $data);
+        $this->load->view('admin/berita');
+        $this->load->view('template/footerAdmin');
     }
 
     public function simpanBerita()
@@ -108,7 +105,7 @@ class Admin extends CI_Controller
         $this->perpus->simpanBerita($namaImage);
         // $this->session->set_flashdata('pesan', '<div id="flashData" value="ada"></div>');
 
-        echo json_encode('sukses');
+        return $this->output->set_output(json_encode('sukses'));
     }
 
     public function getLIstBerita()
@@ -116,7 +113,7 @@ class Admin extends CI_Controller
         $data['berita'] = $this->perpus->getLIstBerita();
         $data['session'] = $this->session->userdata('level');
 
-        echo json_encode($data);
+        return $this->output->set_output(json_encode($data));
     }
 
     public function hapusBerita()
@@ -127,34 +124,31 @@ class Admin extends CI_Controller
 
         $this->perpus->hapusBerita();
 
-        echo json_encode('sukses');
+        return $this->output->set_output(json_encode('sukses'));
     }
     //
     public function bukuPopuler()
     {
         if (!$this->session->userdata('level')) {
             redirect('admin/masuk');
-        } else {
-            $data['title'] = 'Buku Populer | Admin';
-            $data['listKegiatan'] = $this->perpus->getListKegiatan();
-
-            $this->load->view('template/navbarAdmin', $data);
-            $this->load->view('admin/sidebar', $data);
-            $this->load->view('admin/bukuPopuler');
-            $this->load->view('template/footerAdmin');
         }
+        $data['title'] = 'Buku Populer | Admin';
+        $data['listKegiatan'] = $this->perpus->getListKegiatan();
+
+        $this->load->view('template/navbarAdmin', $data);
+        $this->load->view('admin/sidebar', $data);
+        $this->load->view('admin/bukuPopuler');
+        $this->load->view('template/footerAdmin');
     }
 
     public function simpanBukuPopuler()
     {
         $buku = $this->perpus->getDetailBukuPopuler($this->input->post('id'));
         if (!$buku) {
-
             $this->perpus->simpanBukuPopuler($this->input->post('id'));
-            echo json_encode('sukses');
-        } else {
-            echo json_encode('gagal');
+            return $this->output->set_output(json_encode('sukses'));
         }
+        return $this->output->set_output(json_encode('gagal'));
     }
 
     public function getListBukuPopuler()
@@ -162,78 +156,77 @@ class Admin extends CI_Controller
         $data['buku'] = $this->perpus->getListBukuPopuler();
         $data['session'] = $this->session->userdata('level');
 
-        echo json_encode($data);
+        return $this->output->set_output(json_encode($data));
     }
 
     public function getDetailBuku()
     {
         $data = $this->perpus->getDetailBukuIsbn();
 
-        echo json_encode($data);
+        return $this->output->set_output(json_encode($data));
     }
 
     public function hapusBukuPopuler()
     {
-        $data = $this->perpus->hapusBukuPopuler();
+        $this->perpus->hapusBukuPopuler();
 
-        echo json_encode('sukses');
+        return $this->output->set_output(json_encode('sukses'));
     }
     //
     public function dashboard()
     {
         if (!$this->session->userdata('level')) {
             redirect('admin/masuk');
-        } else {
-            $data['title'] = 'Dashboard | Admin';
-            $data['listKegiatan'] = $this->perpus->getListKegiatan();
-
-            $this->load->view('template/navbarAdmin', $data);
-            $this->load->view('admin/sidebar', $data);
-            $this->load->view('admin/dashboard');
-            $this->load->view('template/footerAdmin');
         }
+        $data['title'] = 'Dashboard | Admin';
+        $data['listKegiatan'] = $this->perpus->getListKegiatan();
+
+        $this->load->view('template/navbarAdmin', $data);
+        $this->load->view('admin/sidebar', $data);
+        $this->load->view('admin/dashboard');
+        $this->load->view('template/footerAdmin');
     }
 
     public function getDataPengunjung()
     {
         $data = $this->perpus->getDataPengunjung();
 
-        echo json_encode($data);
+        return $this->output->set_output(json_encode($data));
     }
 
     public function getDataJenisPengunjung()
     {
         $data = $this->perpus->getDataJenisPengunjung();
 
-        echo json_encode($data);
+        return $this->output->set_output(json_encode($data));
     }
 
     public function getTotalKoleksiBuku()
     {
         $data = $this->perpus->getTotalKoleksiBuku();
 
-        echo json_encode($data);
+        return $this->output->set_output(json_encode($data));
     }
 
     public function getTotalPengunjung()
     {
         $data = $this->perpus->getTotalPengunjung();
 
-        echo json_encode($data);
+        return $this->output->set_output(json_encode($data));
     }
 
     public function getTotalAnggota()
     {
         $data = $this->perpus->getTotalAnggota();
 
-        echo json_encode($data);
+        return $this->output->set_output(json_encode($data));
     }
 
     public function getTotalKomentar()
     {
         $data = $this->perpus->getTotalKomentar();
 
-        echo json_encode($data);
+        return $this->output->set_output(json_encode($data));
     }
 
     public function getSelectTampilStatistik($waktu)
@@ -242,7 +235,7 @@ class Admin extends CI_Controller
         $data['jenisKelamin'] = $this->perpus->getSelectTampilStatistikJenisKelamin($waktu);
         $data['jenisKelaminNull'] = $this->perpus->getSelectTampilStatistikJenisKelaminNull($waktu);
 
-        echo json_encode($data);
+        return $this->output->set_output(json_encode($data));
     }
     public function getSelectTampilStatistikAnggota()
     {
@@ -250,44 +243,40 @@ class Admin extends CI_Controller
         $data['pie']['noNull'] = $this->perpus->getSelectTampilStatistikAnggotaPie();
         $data['pie']['null'] = $this->perpus->getSelectTampilStatistikAnggotaPieNull();
 
-        echo json_encode($data);
+        return $this->output->set_output(json_encode($data));
     }
     //
     public function kegiatan($idKegiatan)
     {
         if (!$this->session->userdata('level')) {
             redirect('admin/masuk');
-        } else {
-            $kegiatan = $this->perpus->getDetailKegiatan($idKegiatan);
-            if ($kegiatan) {
-                $data['title'] = 'Kegiatan | Admin';
-                $data['listKegiatan'] = $this->perpus->getListKegiatan();
-                $data['kegiatan'] = $kegiatan;
-
-                $this->load->view('template/navbarAdmin', $data);
-                $this->load->view('admin/sidebar', $data);
-                $this->load->view('admin/kegiatan');
-                $this->load->view('template/footerAdmin');
-            } else {
-                redirect('admin/dashboard');
-            }
         }
+        $kegiatan = $this->perpus->getDetailKegiatan($idKegiatan);
+        if (!$kegiatan) {
+            redirect('admin/dashboard');
+        }
+        $data['title'] = 'Kegiatan | Admin';
+        $data['listKegiatan'] = $this->perpus->getListKegiatan();
+        $data['kegiatan'] = $kegiatan;
+
+        $this->load->view('template/navbarAdmin', $data);
+        $this->load->view('admin/sidebar', $data);
+        $this->load->view('admin/kegiatan');
+        $this->load->view('template/footerAdmin');
     }
     //
     public function koleksiBuku()
     {
         if (!$this->session->userdata('level')) {
             redirect('admin/masuk');
-        } else {
-            $data['title'] = 'Koleksi Buku | Admin';
-            $data['listKegiatan'] = $this->perpus->getListKegiatan();
-
-            $this->load->view('template/navbarAdmin', $data);
-            $this->load->view('admin/sidebar', $data);
-            // $this->load->view('admin/koleksiBuku');
-            $this->load->view('admin/tesServerSide');
-            $this->load->view('template/footerAdmin');
         }
+        $data['title'] = 'Koleksi Buku | Admin';
+        $data['listKegiatan'] = $this->perpus->getListKegiatan();
+
+        $this->load->view('template/navbarAdmin', $data);
+        $this->load->view('admin/sidebar', $data);
+        $this->load->view('admin/tesServerSide');
+        $this->load->view('template/footerAdmin');
     }
 
     public function getLIstBukuAll()
@@ -295,22 +284,21 @@ class Admin extends CI_Controller
         $data['buku'] = $this->perpus->getLIstBukuAll();
         $data['session'] = $this->session->userdata('level');
 
-        echo json_encode($data);
+        return $this->output->set_output(json_encode($data));
     }
     //
     public function kotakSaran()
     {
         if (!$this->session->userdata('level')) {
             redirect('admin/masuk');
-        } else {
-            $data['title'] = 'Kotak Saran | Admin';
-            $data['listKegiatan'] = $this->perpus->getListKegiatan();
-
-            $this->load->view('template/navbarAdmin', $data);
-            $this->load->view('admin/sidebar', $data);
-            $this->load->view('admin/kotakSaran');
-            $this->load->view('template/footerAdmin');
         }
+        $data['title'] = 'Kotak Saran | Admin';
+        $data['listKegiatan'] = $this->perpus->getListKegiatan();
+
+        $this->load->view('template/navbarAdmin', $data);
+        $this->load->view('admin/sidebar', $data);
+        $this->load->view('admin/kotakSaran');
+        $this->load->view('template/footerAdmin');
     }
 
     public function getListSaran($Bagian)
@@ -318,44 +306,42 @@ class Admin extends CI_Controller
         $data['komentar'] = $this->perpus->getListSaran($Bagian);
         $data['session'] = $this->session->userdata('level');
 
-        echo json_encode($data);
+        return $this->output->set_output(json_encode($data));
     }
 
     public function tampilkanKomentar()
     {
         $this->perpus->tampilkanKomentar();
 
-        echo json_encode('sukses');
+        return $this->output->set_output(json_encode('sukses'));
     }
     public function getYangDitampilkan()
     {
         $data = $this->perpus->getYangDitampilkan();
 
-        echo json_encode($data);
+        return $this->output->set_output(json_encode($data));
     }
 
     public function hapusKomentar()
     {
         $this->perpus->hapusKomentar();
 
-        echo json_encode('sukses');
+        return $this->output->set_output(json_encode('sukses'));
     }
 
     public function hapusTampilkanKomentar()
     {
         $this->perpus->hapusTampilkanKomentar();
 
-        echo json_encode('sukses');
+        return $this->output->set_output(json_encode('sukses'));
     }
     //
     public function masuk()
     {
         if ($this->session->userdata('level')) {
             redirect('admin/dashboard');
-        } else {
-            $data['title'] = 'Masuk Staf';
-            $this->load->view('admin/masuk');
         }
+        $this->load->view('admin/masuk');
     }
 
     public function cekMasuk()
@@ -375,19 +361,19 @@ class Admin extends CI_Controller
                 $this->session->set_userdata($data);
             }
             $this->session->set_userdata($data);
-            echo json_encode('sukses');
-        } else {
-            echo json_encode('gagal');
+            return $this->output->set_output(json_encode('sukses'));
         }
+        return $this->output->set_output(json_encode('gagal'));
     }
+
     public function gantiPassword()
     {
         $user = $this->perpus->cekMasuk($this->session->userdata('level'));
         if (password_verify($this->input->post('passwordLama'), $user['password'])) {
             $this->perpus->gantiPassword();
-            echo json_encode('sukses');
+            return $this->output->set_output(json_encode('sukses'));
         } else {
-            echo json_encode('gagal');
+            return $this->output->set_output(json_encode('gagal'));
         }
     }
 
@@ -401,15 +387,14 @@ class Admin extends CI_Controller
     {
         if (!$this->session->userdata('level')) {
             redirect('admin/masuk');
-        } else {
-            $data['title'] = 'Permintaan Buku | Admin';
-            $data['listKegiatan'] = $this->perpus->getListKegiatan();
-
-            $this->load->view('template/navbarAdmin', $data);
-            $this->load->view('admin/sidebar', $data);
-            $this->load->view('admin/permintaanBuku');
-            $this->load->view('template/footerAdmin');
         }
+        $data['title'] = 'Permintaan Buku | Admin';
+        $data['listKegiatan'] = $this->perpus->getListKegiatan();
+
+        $this->load->view('template/navbarAdmin', $data);
+        $this->load->view('admin/sidebar', $data);
+        $this->load->view('admin/permintaanBuku');
+        $this->load->view('template/footerAdmin');
     }
 
     public function getListPermintaanBuku()
@@ -417,14 +402,14 @@ class Admin extends CI_Controller
         $data['buku'] = $this->perpus->getListPermintaanBuku();
         $data['session'] = $this->session->userdata('level');
 
-        echo json_encode($data);
+        return $this->output->set_output(json_encode($data));
     }
 
     public function getDetailPermintaanBuku()
     {
         $data = $this->perpus->getDetailPermintaanBuku();
 
-        echo json_encode($data);
+        return $this->output->set_output(json_encode($data));
     }
     public function hapusPermintaanBuku()
     {
@@ -434,22 +419,21 @@ class Admin extends CI_Controller
 
         $this->perpus->hapusPermintaanBuku();
 
-        echo json_encode('sukses');
+        return $this->output->set_output(json_encode('sukses'));
     }
     //
     public function tambahKegiatan()
     {
         if (!$this->session->userdata('level')) {
             redirect('admin/masuk');
-        } else {
-            $data['title'] = 'Kegiatan | Admin';
-            $data['listKegiatan'] = $this->perpus->getListKegiatan();
-
-            $this->load->view('template/navbarAdmin', $data);
-            $this->load->view('admin/sidebar', $data);
-            $this->load->view('admin/tambahKegiatan');
-            $this->load->view('template/footerAdmin');
         }
+        $data['title'] = 'Kegiatan | Admin';
+        $data['listKegiatan'] = $this->perpus->getListKegiatan();
+
+        $this->load->view('template/navbarAdmin', $data);
+        $this->load->view('admin/sidebar', $data);
+        $this->load->view('admin/tambahKegiatan');
+        $this->load->view('template/footerAdmin');
     }
 
     public function simpanKegiatan()
@@ -468,10 +452,10 @@ class Admin extends CI_Controller
         $this->perpus->simpanKegiatan($namaImage1, $namaImage2);
         $data = $this->perpus->getKegiatanBaru();
 
-        echo json_encode($data);
+        return $this->output->set_output(json_encode($data));
     }
 
-    public function simpanKegiatanLama($id)
+    public function simpanKegiatanLama($idKegiatan)
     {
         $config['allowed_types'] = 'gif|jpg|jpeg|png';
         $config['max_size'] = '2048';
@@ -491,18 +475,18 @@ class Admin extends CI_Controller
             $namaImage2 = $this->upload->data('file_name');
         }
         if (($image1 != '') && ($image2 != '')) {
-            $this->perpus->simpanKegiatanLama($id, $namaImage1, $namaImage2);
+            $this->perpus->simpanKegiatanLama($idKegiatan, $namaImage1, $namaImage2);
             $this->session->set_flashdata('pesan', '<div id="flashData" value="ada">12345678</div>');
         } else if ($image1 != '') {
-            $this->perpus->simpanKegiatanLama($id, $namaImage1, '');
+            $this->perpus->simpanKegiatanLama($idKegiatan, $namaImage1, '');
             $this->session->set_flashdata('pesan', '<div id="flashData" value="ada">12345678</div>');
         } else if ($image2 != '') {
-            $this->perpus->simpanKegiatanLama($id, '', $namaImage2);
+            $this->perpus->simpanKegiatanLama($idKegiatan, '', $namaImage2);
             $this->session->set_flashdata('pesan', '<div id="flashData" value="ada">12345678</div>');
         } else {
-            $this->perpus->simpanKegiatanLama($id, '', '');
+            $this->perpus->simpanKegiatanLama($idKegiatan, '', '');
         }
-        echo json_encode('sukses');
+        return $this->output->set_output(json_encode('sukses'));
     }
 
     public function hapusKegiatan()
@@ -515,7 +499,7 @@ class Admin extends CI_Controller
         $this->perpus->hapusKegiatan();
         $this->session->set_flashdata('pesan', '<div id="flashData" value="ada">12345678</div>');
 
-        echo json_encode('sukses');
+        return $this->output->set_output(json_encode('sukses'));
     }
 
     //
@@ -524,26 +508,25 @@ class Admin extends CI_Controller
     {
         if (!$this->session->userdata('level')) {
             redirect('admin/masuk');
-        } else {
-            $data['title'] = 'Buku Populer | Admin';
-            $data['listKegiatan'] = $this->perpus->getListKegiatan();
-
-            $this->load->view('template/navbarAdmin', $data);
-            $this->load->view('admin/sidebar', $data);
-            $this->load->view('admin/tesServerSide');
-            $this->load->view('template/footerAdmin');
         }
+        $data['title'] = 'Buku Populer | Admin';
+        $data['listKegiatan'] = $this->perpus->getListKegiatan();
+
+        $this->load->view('template/navbarAdmin', $data);
+        $this->load->view('admin/sidebar', $data);
+        $this->load->view('admin/tesServerSide');
+        $this->load->view('template/footerAdmin');
     }
 
     public function get_data_user()
     {
         $list = $this->perpus->get_datatables();
         $data = array();
-        $no = $_POST['start'];
+        $nomor = $this->input->post('start');
         foreach ($list as $buku) {
-            $no++;
+            $nomor++;
             $row = array();
-            $row[] = $no;
+            $row[] = $nomor;
             $row[] = $buku->Title;
             $row[] = $buku->ISBN;
             $row[] = $buku->Author;
@@ -553,7 +536,7 @@ class Admin extends CI_Controller
                 "'target='_blank'><button class='btn btn-rounded btn-outline-info btn-sm'>detail</button></a>";
             if ($this->session->userdata('level') == "admin") {
                 $aksi .= "<button type='button' class='btn btn-outline-success btn-rounded btn-sm' id='tampilkan' onclick='simpanBukuPopulerKoleksi(" .
-                    $no .
+                    $nomor .
                     ")'>Tampilkan</button>";
             }
             $row[] = $aksi;
@@ -562,12 +545,12 @@ class Admin extends CI_Controller
         }
 
         $output = array(
-            "draw" => $_POST['draw'],
+            "draw" => $this->input->post('draw'),
             "recordsTotal" => $this->perpus->count_all(),
             "recordsFiltered" => $this->perpus->count_filtered(),
             "data" => $data,
         );
         //output dalam format JSON
-        echo json_encode($output);
+        return $this->output->set_output(json_encode($output));
     }
 }

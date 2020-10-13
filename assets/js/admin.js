@@ -115,10 +115,10 @@ function getSelectTampilStatistikPengunjung() {
 			dataType: "JSON",
 			success: function (data) {
 				for (var i = 0; i < Object.keys(data["data"]).length; i++) {
-					tempTotal = tempTotal + parseInt(data["data"][i]["total"]);
+					tempTotal = tempTotal + parseInt(data["data"][i]["total"],10);
 					arrTotal[i] = tempTotal;
 					label[i] = data["data"][i]["tahun"];
-					pengunjung[i] = parseInt(data["data"][i]["total"]);
+					pengunjung[i] = parseInt(data["data"][i]["total"],10);
 				}
 				$("#totalPengunjungWaktu").html(tempTotal);
 				rata2 = Math.floor(tempTotal / Object.keys(data["data"]).length);
@@ -128,7 +128,7 @@ function getSelectTampilStatistikPengunjung() {
 				for (var i = 1; i < Object.keys(data["jenisKelamin"]).length; i++) {
 					totalJenisKelamin[
 						data["jenisKelamin"][i]["JenisKelamin_id"]
-					] = parseInt(data["jenisKelamin"][i]["total"]);
+					] = parseInt(data["jenisKelamin"][i]["total"],10);
 				}
 
 				buatGrafikGarisPengunjung(label, arrTotal, pengunjung);
@@ -145,22 +145,22 @@ function getSelectTampilStatistikPengunjung() {
 			dataType: "JSON",
 			success: function (data) {
 				for (var i = 0; i < Object.keys(data["data"]).length; i++) {
-					tempTotal = tempTotal + parseInt(data["data"][i]["total"]);
+					tempTotal = tempTotal + parseInt(data["data"][i]["total"],10);
 					arrTotal[i] = tempTotal;
 					label[i] = data["data"][i]["tahun"];
-					pengunjung[i] = parseInt(data["data"][i]["total"]);
+					pengunjung[i] = parseInt(data["data"][i]["total"],10);
 				}
 				$("#totalPengunjungWaktu").html(tempTotal);
 				rata2 = Math.floor(tempTotal / Object.keys(data["data"]).length);
 				$("#rata2PengunjungWaktu").html(rata2);
 
-				if (data["jenisKelaminNull"] != 0) {
+				if (data["jenisKelaminNull"] !== 0) {
 					totalJenisKelamin[0] = data["jenisKelaminNull"];
 				}
 				for (var i = 0; i < Object.keys(data["jenisKelamin"]).length; i++) {
 					totalJenisKelamin[
 						data["jenisKelamin"][i]["JenisKelamin_id"]
-					] = parseInt(data["jenisKelamin"][i]["total"]);
+					] = parseInt(data["jenisKelamin"][i]["total"],10);
 				}
 
 				buatGrafikGarisPengunjung(label, arrTotal, pengunjung);
@@ -184,15 +184,15 @@ function getSelectTampilStatistikAnggota() {
 		dataType: "JSON",
 		success: function (data) {
 			for (var i = 0; i < Object.keys(data["line"]).length; i++) {
-				tempTotal = tempTotal + parseInt(data["line"][i]["total"]);
+				tempTotal = tempTotal + parseInt(data["line"][i]["total"],10);
 				arrTotal[i] = tempTotal;
 				label[i] = data["line"][i]["tahun"];
-				pengunjung[i] = parseInt(data["line"][i]["total"]);
+				pengunjung[i] = parseInt(data["line"][i]["total"],10);
 			}
 
-			totalJenisAnggota[0] = parseInt(data["pie"]["null"]);
+			totalJenisAnggota[0] = parseInt(data["pie"]["null"],10);
 			for (var i = 0; i < Object.keys(data["pie"]["noNull"]).length; i++) {
-				totalJenisAnggota[i + 1] = parseInt(data["pie"]["noNull"][i]["total"]);
+				totalJenisAnggota[i + 1] = parseInt(data["pie"]["noNull"][i]["total"],10);
 			}
 			console.log(totalJenisAnggota);
 			var ctxL = document.getElementById("lineChart2").getContext("2d");
@@ -492,7 +492,7 @@ $(".formTambahBerita").submit(function (event) {
 	console.log(data);
 
 	if (judul == "" || isi == "" || gambar == "") {
-		if ($(".tempatError").children().hasClass("alert") != true) {
+		if ($(".tempatError").children().hasClass("alert") !== true) {
 			$(".tempatError").prepend(
 				'<div class="alert alert-danger">Mohon Lengkapi Form Diatas</div>'
 			);
@@ -642,7 +642,7 @@ $(".formTambahArsip").submit(function (event) {
 	data.append("isi", isi);
 
 	if (judul == "" || isi == "" || gambar == "") {
-		if ($(".tempatError").children().hasClass("alert") != true) {
+		if ($(".tempatError").children().hasClass("alert") !== true) {
 			$(".tempatError").prepend(
 				'<div class="alert alert-danger">Mohon Lengkapi Form Diatas</div>'
 			);
@@ -731,7 +731,7 @@ function getListBukuAll() {
 						var tempIsbn = data["buku"][i]["ISBN"];
 						tempIsbn = tempIsbn.split("-").join("").split("");
 						for (j = 0; j < tempIsbn.length; j++) {
-							if (j == 2 || j == 5 || j == 9 || j == 11) {
+							if (j === 2 || j === 5 || j === 9 || j === 11) {
 								isbn += tempIsbn[j] + "-";
 							} else {
 								isbn += tempIsbn[j];
@@ -794,7 +794,7 @@ function getListBukuPopuler() {
 						var tempIsbn = data["buku"][i]["ISBN"];
 						tempIsbn = tempIsbn.split("-").join("").split("");
 						for (j = 0; j < tempIsbn.length; j++) {
-							if (j == 2 || j == 5 || j == 9 || j == 11) {
+							if (j === 2 || j === 5 || j === 9 || j === 11) {
 								isbn += tempIsbn[j] + "-";
 							} else {
 								isbn += tempIsbn[j];
@@ -1225,7 +1225,7 @@ function getDataSaran() {
 									flag = 1;
 								}
 							}
-							if (flag == 1) {
+							if (flag === 1) {
 								isi +=
 									"<td><button type='button' class='btn btn-outline-warning btn-rounded btn-sm' id='hapusTampilkan' onclick='hapusTampilkanKomentar(" +
 									data["komentar"][i]["idkomentar"] +
@@ -1500,7 +1500,7 @@ function konfirmasiGantiPassword() {
 		passwordBaru == "" ||
 		konfirmasiPasswordBaru == ""
 	) {
-		if ($(".modal-body").children().hasClass("alert") != true) {
+		if ($(".modal-body").children().hasClass("alert") !== true) {
 			$(".modal-body").prepend(
 				'<div class="alert alert-danger">Form kosong!</div>'
 			);
@@ -1516,7 +1516,7 @@ function konfirmasiGantiPassword() {
 			$("#konfirmasiPasswordBaru").val("");
 		}
 	} else if (passwordLama == passwordBaru) {
-		if ($(".modal-body").children().hasClass("alert") != true) {
+		if ($(".modal-body").children().hasClass("alert") !== true) {
 			$(".modal-body").prepend(
 				'<div class="alert alert-danger">Password lama dan baru tidak boleh sama</div>'
 			);
@@ -1594,7 +1594,7 @@ $(".formLogin").submit(function (event) {
 	var username = $("#password").val();
 	var password = $("#username").val();
 	if (username == "" || password == "") {
-		if ($(".formLogin").children().hasClass("alert") != true) {
+		if ($(".formLogin").children().hasClass("alert") !== true) {
 			$(".formLogin").prepend(
 				'<div class="alert alert-danger">Form kosong!</div>'
 			);
@@ -1619,7 +1619,7 @@ $(".formLogin").submit(function (event) {
 				if (respon == "sukses") {
 					window.location.href = url + "dashboard";
 				} else {
-					if ($(".formLogin").children().hasClass("alert") != true) {
+					if ($(".formLogin").children().hasClass("alert") !== true) {
 						$(".formLogin").prepend(
 							'<div class="alert alert-danger">username atau password salah!</div>'
 						);

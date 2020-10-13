@@ -16,7 +16,7 @@
                         </a>
 
                         <div class="step-content ml-3 p-0 hoverable">
-                            <img src="<?= base_url() ?>assets/img/misi1.jpg" class="img-fluid" alt="Responsive image">
+                            <img src="<?= filter_var(base_url(), FILTER_DEFAULT) ?>assets/img/misi1.jpg" class="img-fluid" alt="Responsive image">
                             <h5 class="p-4 mb-0">Memberdayakan Lembaga Perpustakaan dan Kearsipan sebagai Sumber Informasi dan Pengetahuan</h5>
                         </div>
                     </li>
@@ -25,7 +25,7 @@
                             <span class="circle cyan darken-2 z-depth-1-half"><i class="fas fa-book" aria-hidden="true"></i></span>
                         </a>
                         <div class="step-content mr-xl-3 p-0 hoverable">
-                            <img src="<?= base_url() ?>assets/img/misi2.jpg" class="img-fluid" alt="Responsive image">
+                            <img src="<?= filter_var(base_url(), FILTER_DEFAULT) ?>assets/img/misi2.jpg" class="img-fluid" alt="Responsive image">
                             <h5 class="p-4 mb-0">Menumbuhkan dan Mengembangkan Kebiasaan, minat baca masyarakat</h5>
                         </div>
                     </li>
@@ -34,7 +34,7 @@
                             <span class="circle cyan darken-2 z-depth-1-half"><i class="far fa-lightbulb" aria-hidden="true"></i></span>
                         </a>
                         <div class="step-content ml-3 p-0 hoverable">
-                            <img src="<?= base_url() ?>assets/img/misi3.jpg" class="img-fluid" alt="Responsive image">
+                            <img src="<?= filter_var(base_url(), FILTER_DEFAULT) ?>assets/img/misi3.jpg" class="img-fluid" alt="Responsive image">
                             <h5 class="p-4 mb-0">Mewujudkan Masyarakat berbudaya baca menuju SDM berkualitas</h5>
                         </div>
                     </li>
@@ -43,7 +43,7 @@
                             <span class="circle cyan darken-2 z-depth-1-half"><i class="far fa-save" aria-hidden="true"></i></span>
                         </a>
                         <div class="step-content mr-xl-3 p-0 hoverable">
-                            <img src="<?= base_url() ?>assets/img/misi4.jpg" class="img-fluid" alt="Responsive image">
+                            <img src="<?= filter_var(base_url(), FILTER_DEFAULT) ?>assets/img/misi4.jpg" class="img-fluid" alt="Responsive image">
                             <h5 class="p-4 mb-0">Menyelamatkan dan Melestarikan Arsip</p>
                         </div>
                     </li>

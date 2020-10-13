@@ -149,25 +149,26 @@
         <?php foreach ($bukuPopuler as $bukuPopuler) :
             $judul = '';
             $judul = explode("/", $bukuPopuler['Title']);
-
-            echo '<div class="col-sm">';
-            echo '<a href="' . base_url() . 'buku/' . $bukuPopuler['ID'] . '/' . $judul[0] . '">';
-            echo '<div class="card cardBuku">';
-            echo '<div class="card-header">';
-            $filename = './assets/img/cover/' . $bukuPopuler['ID'] . '.jpg';
-            if (file_exists($filename)) {
-                echo '<img src="' . base_url() . 'assets/img/cover/' . $bukuPopuler['ID'] . '.jpg" class="imgKoleksiBuku">';
-            } else {
-                echo '<img src="' . base_url() . 'assets/img/cover/tdkada.gif" class="imgKoleksiBuku">';
-            }
-            echo '</div>';
-            echo '<div class="card-body" style="color:black;">';
-            echo $judul[0];
-            echo '</div>';
-            echo '</div>';
-            echo '</a>';
-            echo '</div>';
-        endforeach; ?>
+        ?>
+            <div class="col-sm">
+                <a href="<?= filter_var(base_url(), FILTER_DEFAULT) ?>buku/<?= filter_var($bukuPopuler['ID'], FILTER_DEFAULT) ?>/<?= filter_var($judul[0], FILTER_DEFAULT) ?>">
+                    <div class="card cardBuku">
+                        <div class="card-header">
+                            <?php
+                            $filename = './assets/img/cover/' . $bukuPopuler['ID'] . '.jpg';
+                            if (file_exists($filename)) { ?>
+                                <img src="<?= filter_var(base_url(), FILTER_DEFAULT) ?>assets/img/cover/<?= filter_var($bukuPopuler['ID'], FILTER_DEFAULT) ?>.jpg" class="imgKoleksiBuku">
+                            <?php } else { ?>
+                                <img src="<?= filter_var(base_url(), FILTER_DEFAULT) ?>assets/img/cover/tdkada.gif" class="imgKoleksiBuku">
+                            <?php } ?>
+                        </div>
+                        <div class="card-body" style="color:black;">
+                            <?= filter_var($judul[0], FILTER_DEFAULT) ?>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        <?php endforeach; ?>
     </div>
 </div>
 <!-- akhir buku Populer -->
@@ -240,15 +241,14 @@
             <div data-u="slides" style="cursor:default;position:relative;top:0px;left:0px;width:500px;height:400px;overflow:hidden;">
                 <?php foreach ($listKegiatan as $listKegiatan) : ?>
                     <div>
-                        <img style="left:50px;top:60px;width:400px;height:300px;position:absolute;max-width:400px;" src="assets/img/kegiatan/<?= $listKegiatan['gambar1'] ?>" />
-                        <a href="<?= base_url() ?>kegiatan/<?= $listKegiatan['id'] ?>">
+                        <img style="left:50px;top:60px;width:400px;height:300px;position:absolute;max-width:400px;" src="assets/img/kegiatan/<?= filter_var($listKegiatan['gambar1'], FILTER_DEFAULT) ?>" />
+                        <a href="<?= filter_var(base_url(), FILTER_DEFAULT) ?>kegiatan/<?= filter_var($listKegiatan['id'], FILTER_DEFAULT) ?>">
                             <!-- ganti tombol lain -->
                             <div class="buttonPencarian">
                                 <button type="button" id="buttonPencarian" style="left:161px;top:368px;width:178px;height:31px;position:absolute;max-width:178px;font-size:12px;">Baca Selengkapnya</button>
                             </div>
-                            <!-- <img style="left:161px;top:365px;width:178px;height:31px;position:absolute;max-width:178px;" src="assets/img/bacaselanjutnya.png" /> -->
                         </a>
-                        <div style="left:0px;top:20px;width:500px;height:27px;position:absolute;color:#000000;font-size:16px;font-weight:400;line-height:1.2;text-align:center;"><?= $listKegiatan['nama'] ?></div>
+                        <div style="left:0px;top:20px;width:500px;height:27px;position:absolute;color:#000000;font-size:16px;font-weight:400;line-height:1.2;text-align:center;"><?= filter_var($listKegiatan['nama'], FILTER_SANITIZE_FULL_SPECIAL_CHARS) ?></div>
                     </div>
                 <?php endforeach; ?>
             </div>
@@ -282,81 +282,93 @@
             if (($total % 3) == 1) {
                 for ($i = 0; $i < $total - 1; $i++) {
                     if (($i % 3) == 0) {
-                        if ($i == 0) {
-                            echo '<div class="carousel-item active">';
-                        } else {
-                            echo '<div class="carousel-item">';
+                        if ($i == 0) { ?>
+                            <div class="carousel-item active">
+                            <?php  } else { ?>
+                                <div class="carousel-item">
+                            <?php }
+                    } ?>
+                            <div class="col-md-4">
+                                <div class="card mb-2 cardSaran">
+                                    <img class="card-img-top quote" src="<?= filter_var(base_url(), FILTER_DEFAULT) ?>assets/img/quote.png" alt="">
+                                    <div class="card-body">
+                                        <p class="card-text">
+                                            <?= filter_var($komentar[$i]['isi'], FILTER_SANITIZE_FULL_SPECIAL_CHARS) ?>
+                                        </p>
+                                    </div>
+                                    <div class="card-footer footerQuote">
+                                        <p>
+                                            <?= filter_var($komentar[$i]['nama'], FILTER_SANITIZE_FULL_SPECIAL_CHARS) ?>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <?php
+                            if (($i % 3) == 2) { ?>
+                                </div>
+                                <?php }
                         }
-                    }
-                    echo '<div class="col-md-4">';
-                    echo '<div class="card mb-2 cardSaran">';
-                    echo '<img class="card-img-top quote" src="' . base_url() . 'assets/img/quote.png" alt="">';
-                    echo '<div class="card-body">';
-                    echo '<p class="card-text">';
-                    echo $komentar[$i]['isi'];
-                    echo '</p></div>';
-                    echo '<div class="card-footer footerQuote"><p>';
-                    echo $komentar[$i]['nama'];
-                    echo '</p></div>';
-                    echo '</div>';
-                    echo '</div>';
-                    if (($i % 3) == 2) {
-                        echo '</div>';
-                    }
-                }
-            } else if (($total % 3) == 2) {
-                for ($i = 0; $i < $total - 2; $i++) {
-                    if (($i % 3) == 0) {
-                        if ($i == 0) {
-                            echo '<div class="carousel-item active">';
-                        } else {
-                            echo '<div class="carousel-item">';
-                        }
-                    }
-                    echo '<div class="col-md-4">';
-                    echo '<div class="card mb-2 cardSaran">';
-                    echo '<img class="card-img-top quote" src="' . base_url() . 'assets/img/quote.png" alt="">';
-                    echo '<div class="card-body">';
-                    echo '<p class="card-text">';
-                    echo $komentar[$i]['isi'];
-                    echo '</p></div>';
-                    echo '<div class="card-footer footerQuote"><p>';
-                    echo $komentar[$i]['nama'];
-                    echo '</p></div>';
-                    echo '</div>';
-                    echo '</div>';
-                    if (($i % 3) == 2) {
-                        echo '</div>';
-                    }
-                }
-            } else {
-                foreach ($komentar as $key => $komentar) :
-                    if (($key % 3) == 0) {
-                        if ($key == 0) {
-                            echo '<div class="carousel-item active">';
-                        } else {
-                            echo '<div class="carousel-item">';
-                        }
-                    }
-                    echo '<div class="col-md-4">';
-                    echo '<div class="card mb-2 cardSaran">';
-                    echo '<img class="card-img-top quote" src="' . base_url() . 'assets/img/quote.png" alt="">';
-                    echo '<div class="card-body">';
-                    echo '<p class="card-text">';
-                    echo $komentar['isi'];
-                    echo '</p></div>';
-                    echo '<div class="card-footer footerQuote"><p>';
-                    echo $komentar['nama'];
-                    echo '</p></div>';
-                    echo '</div>';
-                    echo '</div>';
-                    if (($key % 3) == 2) {
-                        echo '</div>';
-                    }
-                endforeach;
-            }
-            ?>
-        </div>
-    </div>
-</div>
-<!-- akhir saran -->
+                    } else if (($total % 3) == 2) {
+                        for ($i = 0; $i < $total - 2; $i++) {
+                            if (($i % 3) == 0) {
+                                if ($i == 0) { ?>
+                                    <div class="carousel-item active">
+                                    <?php } else { ?>
+                                        <div class="carousel-item">
+                                    <?php }
+                            } ?>
+                                    <div class="col-md-4">
+                                        <div class="card mb-2 cardSaran">
+                                            <img class="card-img-top quote" src="<?= filter_var(base_url(), FILTER_DEFAULT) ?>assets/img/quote.png" alt="">
+                                            <div class="card-body">
+                                                <p class="card-text">
+                                                    <?= filter_var($komentar[$i]['isi'], FILTER_SANITIZE_FULL_SPECIAL_CHARS) ?>
+                                                </p>
+                                            </div>
+                                            <div class="card-footer footerQuote">
+                                                <p>
+                                                    <?= filter_var($komentar[$i]['nama'], FILTER_SANITIZE_FULL_SPECIAL_CHARS) ?>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <?php
+                                    if (($i % 3) == 2) { ?>
+                                        </div>
+                                        <?php }
+                                }
+                            } else {
+                                foreach ($komentar as $key => $komentar) :
+                                    if (($key % 3) == 0) {
+                                        if ($key == 0) { ?>
+                                            <div class="carousel-item active">
+                                            <?php  } else { ?>
+                                                <div class="carousel-item">
+                                            <?php }
+                                    } ?>
+                                            <div class="col-md-4">
+                                                <div class="card mb-2 cardSaran">
+                                                    <img class="card-img-top quote" src="<?= filter_var(base_url(), FILTER_DEFAULT) ?>assets/img/quote.png" alt="">
+                                                    <div class="card-body">
+                                                        <p class="card-text">
+                                                            <?= filter_var($komentar['isi'], FILTER_SANITIZE_FULL_SPECIAL_CHARS) ?>
+                                                        </p>
+                                                    </div>
+                                                    <div class="card-footer footerQuote">
+                                                        <p>
+                                                            <?= filter_var($komentar['nama'], FILTER_SANITIZE_FULL_SPECIAL_CHARS) ?>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <?php
+                                            if (($key % 3) == 2) { ?>
+                                                </div>
+                                    <?php }
+                                        endforeach;
+                                    }
+                                    ?>
+                                            </div>
+                                    </div>
+                            </div>
+                            <!-- akhir saran -->

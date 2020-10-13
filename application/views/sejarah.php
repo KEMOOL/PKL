@@ -86,7 +86,7 @@
                             <div class="row">
                                 <div class="col-md-5">
                                     <div class="view overlay rgba-white-slight">
-                                        <img src="<?= base_url() ?>assets/img/office-building.png" class="img-fluid rounded-bottom">
+                                        <img src="<?= filter_var(base_url(), FILTER_DEFAULT) ?>assets/img/office-building.png" class="img-fluid rounded-bottom">
                                         <a>
                                             <div class="mask"></div>
                                         </a>
@@ -109,7 +109,7 @@
                             <div class="row">
                                 <div class="col-md-5">
                                     <div class="view overlay rgba-white-slight">
-                                        <img src="<?= base_url() ?>assets/img/books_library.png" class="img-fluid rounded-bottom">
+                                        <img src="<?= filter_var(base_url(), FILTER_DEFAULT) ?>assets/img/books_library.png" class="img-fluid rounded-bottom">
                                         <a>
                                             <div class="mask"></div>
                                         </a>
@@ -132,7 +132,7 @@
                             <div class="row">
                                 <div class="col-md-5">
                                     <div class="view overlay rgba-white-slight">
-                                        <img src="<?= base_url() ?>assets/img/folder.png" class="img-fluid rounded-bottom">
+                                        <img src="<?= filter_var(base_url(), FILTER_DEFAULT) ?>assets/img/folder.png" class="img-fluid rounded-bottom">
                                         <a>
                                             <div class="mask"></div>
                                         </a>

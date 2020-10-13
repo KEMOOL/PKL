@@ -95,6 +95,6 @@
                 <h1>4<span>0</span>4</h1>
             </div>
             <p>Halaman yang anda cari tidak tersedia</p>
-            <a href="<?= base_url() ?>">Beranda</a>
+            <a href="<?= filter_var(base_url(), FILTER_DEFAULT) ?>">Beranda</a>
         </div>
     </div>

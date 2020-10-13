@@ -5,16 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="icon" href="<?= base_url() ?>favicon.ico" type="image/gif">
-    <title><?= $title ?></title>
-    <link rel="stylesheet" href="<?= base_url(); ?>assets/css/bootstrap.css">
-    <link rel="stylesheet" href="<?= base_url(); ?>assets/css/sb-admin-2.css">
-    <link rel="stylesheet" href="<?= base_url(); ?>assets/css/styleAdmin.css">
-    <link rel="stylesheet" href="<?= base_url(); ?>assets/datatables/dataTables.bootstrap4.css">
-    <link rel="stylesheet" href="<?= base_url(); ?>assets/bootstrap-select/dist//css/bootstrap-select.css">
-    <link rel="stylesheet" href="<?= base_url(); ?>assets/fontawesome-free/css/all.css">
+    <link rel="icon" href="<?= filter_var(base_url(), FILTER_DEFAULT) ?>favicon.ico" type="image/gif">
+    <title><?= filter_var($title, FILTER_DEFAULT) ?></title>
+    <link rel="stylesheet" href="<?= filter_var(base_url(), FILTER_DEFAULT); ?>assets/css/bootstrap.css">
+    <link rel="stylesheet" href="<?= filter_var(base_url(), FILTER_DEFAULT); ?>assets/css/sb-admin-2.css">
+    <link rel="stylesheet" href="<?= filter_var(base_url(), FILTER_DEFAULT); ?>assets/css/styleAdmin.css">
+    <link rel="stylesheet" href="<?= filter_var(base_url(), FILTER_DEFAULT); ?>assets/datatables/dataTables.bootstrap4.css">
+    <link rel="stylesheet" href="<?= filter_var(base_url(), FILTER_DEFAULT); ?>assets/bootstrap-select/dist//css/bootstrap-select.css">
+    <link rel="stylesheet" href="<?= filter_var(base_url(), FILTER_DEFAULT); ?>assets/fontawesome-free/css/all.css">
 </head>
-<!-- <link rel="shortcut icon" href="<?= base_url(); ?>assets/img/favicon.ico" type="image/x-icon"> -->
 
 <body id="page-top">
 
@@ -30,14 +29,14 @@
             <hr class="sidebar-divider my-0">
             <!-- Dashboard -->
             <li class="nav-item">
-                <a class="nav-link" href="<?= base_url('admin/dashboard') ?>">
+                <a class="nav-link" href="<?= filter_var(base_url('admin/dashboard'), FILTER_DEFAULT) ?>">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
             <!-- Berita -->
             <hr class="sidebar-divider">
             <li class="nav-item">
-                <a class="nav-link" href="<?= base_url('admin/berita') ?>">
+                <a class="nav-link" href="<?= filter_var(base_url('admin/berita'), FILTER_DEFAULT) ?>">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Berita</span></a>
             </li>
@@ -50,16 +49,16 @@
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="<?= base_url('admin/koleksiBuku') ?>">Koleksi Buku</a>
-                        <a class="collapse-item" href="<?= base_url('admin/bukuPopuler') ?>">Buku Populer</a>
-                        <a class="collapse-item" href="<?= base_url('admin/permintaanBuku') ?>">Permintaan Buku</a>
+                        <a class="collapse-item" href="<?= filter_var(base_url('admin/koleksiBuku'), FILTER_DEFAULT) ?>">Koleksi Buku</a>
+                        <a class="collapse-item" href="<?= filter_var(base_url('admin/bukuPopuler'), FILTER_DEFAULT) ?>">Buku Populer</a>
+                        <a class="collapse-item" href="<?= filter_var(base_url('admin/permintaanBuku'), FILTER_DEFAULT) ?>">Permintaan Buku</a>
                     </div>
                 </div>
             </li>
             <hr class="sidebar-divider">
             <!-- Saran -->
             <li class="nav-item">
-                <a class="nav-link" href="<?= base_url('admin/kotakSaran') ?>">
+                <a class="nav-link" href="<?= filter_var(base_url('admin/kotakSaran'), FILTER_DEFAULT) ?>">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Kotak Saran</span></a>
             </li>
@@ -73,9 +72,9 @@
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <?php foreach ($listKegiatan as $listKegiatan) { ?>
-                            <a class="collapse-item" href="<?= base_url() . 'admin/kegiatan/' . $listKegiatan['id'] ?>"><?= $listKegiatan['nama'] ?></a>
+                            <a class="collapse-item" href="<?= filter_var(base_url(), FILTER_DEFAULT) . 'admin/kegiatan/' . filter_var($listKegiatan['id'], FILTER_DEFAULT) ?>"><?= filter_var($listKegiatan['nama'], FILTER_SANITIZE_FULL_SPECIAL_CHARS) ?></a>
                         <?php } ?>
-                        <a class="collapse-item bg-gradient-warning" href="<?= base_url() . 'admin/tambahKegiatan' ?>">Tambah Kegiatan</a>
+                        <a class="collapse-item bg-gradient-warning" href="<?= filter_var(base_url(), FILTER_DEFAULT) . 'admin/tambahKegiatan' ?>">Tambah Kegiatan</a>
                     </div>
                 </div>
             </li>
@@ -115,7 +114,7 @@
                         <div class="form-group fotoketerangan">
                             <label for="fotoBagian1">Foto Bagian 1</label>
                             <div class="card p-3">
-                                <img id="fotoBagian1" src="<?= base_url() ?>assets/img/kegiatan/<?= $kegiatan['gambar1'] ?>" class="img-thumbnail">
+                                <img id="fotoBagian1" src="<?= filter_var(base_url(), FILTER_DEFAULT) ?>assets/img/kegiatan/<?= filter_var($kegiatan['gambar1'], FILTER_DEFAULT) ?>" class="img-thumbnail">
                             </div>
                             <label for="fotoBagian1">Foto Baru</label>
                             <div class="custom-file">
@@ -126,13 +125,13 @@
                         <div class="form-group">
                             <label for="1">Isi Bagian 1</label>
                             <textarea name="editor1" class="ckeditor">
-                                <?= $kegiatan['isi1'] ?>
+                                <?= filter_var($kegiatan['isi1'], FILTER_DEFAULT) ?>
                             </textarea>
                         </div>
                         <div class="form-group fotoketerangan">
                             <label for="fotoBagian1">Foto Bagian 2</label>
                             <div class="card p-3">
-                                <img id="fotoBagian1" src="<?= base_url() ?>assets/img/kegiatan/<?= $kegiatan['gambar2'] ?>" class="img-thumbnail">
+                                <img id="fotoBagian1" src="<?= filter_var(base_url(), FILTER_DEFAULT) ?>assets/img/kegiatan/<?= filter_var($kegiatan['gambar2'], FILTER_DEFAULT) ?>" class="img-thumbnail">
                             </div>
                             <label for="fotoBagian1">Foto Baru</label>
                             <div class="custom-file">
@@ -142,11 +141,11 @@
                         </div>
                         <div class="form-group">
                             <label for="isiBagian2">Isi Bagian 2</label>
-                            <textarea name="editor2" class="ckeditor"><?= $kegiatan['isi2'] ?></textarea>
+                            <textarea name="editor2" class="ckeditor"><?= filter_var($kegiatan['isi2'], FILTER_DEFAULT) ?></textarea>
                         </div>
 
                         <div class="submit-button">
-                            <button type="submit" id="simpanKegiatan" onclick="simpanKegiatan(<?= $kegiatan['id'] ?>)">Kirim</button>
+                            <button type="submit" id="simpanKegiatan" onclick="simpanKegiatan(<?= filter_var($kegiatan['id'], FILTER_DEFAULT) ?>)">Kirim</button>
                         </div>
                     </form>
                 </div>
@@ -168,19 +167,18 @@
 
     </div>
     <div id="chart"></div>
-    <script src="<?= base_url(); ?>assets/js/jquery-3.4.1.js"></script>
-    <script src="<?= base_url(); ?>assets/js/bootstrap.bundle.js"></script>
-    <script src="<?= base_url(); ?>assets/js/sb-admin-2.js"></script>
-    <script src="<?= base_url(); ?>assets/js/chart.js/Chart.min.js"></script>
-    <script src="<?= base_url(); ?>assets/js/demo/datatables-demo.js"></script>
-    <script src="<?= base_url(); ?>assets/datatables/jquery.dataTables.js"></script>
-    <script src="<?= base_url(); ?>assets/datatables/dataTables.bootstrap4.min.js"></script>
-    <script src="<?= base_url(); ?>assets/bootstrap-select/dist/js/bootstrap-select.js"></script>
-    <script src="<?= base_url(); ?>assets/datatables/dataTables.bootstrap4.min.js"></script>
-    <script src="<?= base_url(); ?>assets/ckeditor/ckeditor.js"></script>
-    <script src="<?= base_url(); ?>assets/js/admin.js"></script>
-    <script src="<?= base_url(); ?>assets/js/1e8c01e17b.js"></script>
-    <!-- <script src="https://kit.fontawesome.com/1e8c01e17b.js" crossorigin="anonymous"></script> -->
+    <script src="<?= filter_var(base_url(), FILTER_DEFAULT); ?>assets/js/jquery-3.4.1.js"></script>
+    <script src="<?= filter_var(base_url(), FILTER_DEFAULT); ?>assets/js/bootstrap.bundle.js"></script>
+    <script src="<?= filter_var(base_url(), FILTER_DEFAULT); ?>assets/js/sb-admin-2.js"></script>
+    <script src="<?= filter_var(base_url(), FILTER_DEFAULT); ?>assets/js/chart.js/Chart.min.js"></script>
+    <script src="<?= filter_var(base_url(), FILTER_DEFAULT); ?>assets/js/demo/datatables-demo.js"></script>
+    <script src="<?= filter_var(base_url(), FILTER_DEFAULT); ?>assets/datatables/jquery.dataTables.js"></script>
+    <script src="<?= filter_var(base_url(), FILTER_DEFAULT); ?>assets/datatables/dataTables.bootstrap4.min.js"></script>
+    <script src="<?= filter_var(base_url(), FILTER_DEFAULT); ?>assets/bootstrap-select/dist/js/bootstrap-select.js"></script>
+    <script src="<?= filter_var(base_url(), FILTER_DEFAULT); ?>assets/datatables/dataTables.bootstrap4.min.js"></script>
+    <script src="<?= filter_var(base_url(), FILTER_DEFAULT); ?>assets/ckeditor/ckeditor.js"></script>
+    <script src="<?= filter_var(base_url(), FILTER_DEFAULT); ?>assets/js/admin.js"></script>
+    <script src="<?= filter_var(base_url(), FILTER_DEFAULT); ?>assets/js/1e8c01e17b.js"></script>
 </body>
 
 </html>

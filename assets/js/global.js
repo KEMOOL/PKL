@@ -157,7 +157,7 @@ function kirimSaran() {
 		nama = "Pengunjung";
 	}
 	if (isi == "" || pekerjaan == "" || typeof kelamin == "undefined") {
-		if ($(".tempatError").children().hasClass("alert") != true) {
+		if ($(".tempatError").children().hasClass("alert") !== true) {
 			$(".tempatError").prepend(
 				'<div class="alert alert-danger">Mohon Lengkapi Form Diatas</div>'
 			);
@@ -211,7 +211,7 @@ function kirimPermintaanBuku() {
 		gambar == "" ||
 		komentar == ""
 	) {
-		if ($(".tempatError").children().hasClass("alert") != true) {
+		if ($(".tempatError").children().hasClass("alert") !== true) {
 			$(".tempatError").prepend(
 				'<div class="alert alert-danger">Mohon Lengkapi Form Diatas</div>'
 			);
@@ -257,9 +257,9 @@ function tampilBerita() {
 			var isiBerita;
 			var total = Object.keys(data).length;
 
-			if (total % 3 == 1) {
+			if (total % 3 === 1) {
 				for (var i = 0; i < total - 1; i++) {
-					if (i == 0) {
+					if (i === 0) {
 						isi += '<div class="carousel-item active">';
 					} else {
 						isi += '<div class="carousel-item">';
@@ -352,9 +352,9 @@ function tampilBerita() {
 					}
 					isi += "</div>";
 				}
-			} else if (total % 3 == 2) {
+			} else if (total % 3 === 2) {
 				for (var i = 0; i < total - 2; i++) {
-					if (i == 0) {
+					if (i === 0) {
 						isi += '<div class="carousel-item active">';
 					} else {
 						isi += '<div class="carousel-item">';
@@ -584,23 +584,6 @@ $(".formPencarian").submit(function (event) {
 						isi += '<a href="' + url + "buku/" + data[i]["ID"] + '">';
 						isi += '<div class="card cardBuku">';
 						isi += '<div class="card-header">';
-						// 		gambar = data[i]["ID"];
-						// 		var image = new Image();
-						// 		var url_image = url + "assets/img/cover/" + gambar + ".jpg";
-						// 		image.src = url_image;
-						// 		if (image.width == 0) {
-						// 			isi +=
-						// 				"<img src='" +
-						// 				url +
-						// 				"assets/img/cover/tdkada.gif' class='imgKoleksiBuku'>";
-						// 		} else {
-						// 			isi +=
-						// 				"<img src='" +
-						// 				url +
-						// 				"assets/img/cover/" +
-						// 				data[i]["ID"] +
-						// 				".jpg' class='imgKoleksiBuku'>";
-						// 		}
 						isi +=
 							'<img src="' +
 							url +
@@ -629,55 +612,6 @@ $(".formPencarian").submit(function (event) {
 					$(".paginationn").html("");
 					$("#listBuku").html("");
 				}
-
-				// $("#listBuku").html("");
-				// $("#takAda").remove();
-				// console.log(Object.keys(data).length);
-				// if (Object.keys(data).length > 0) {
-				// 	for (var i = Object.keys(data).length - 1; i >= 0; i--) {
-				// 		var isi = "";
-				// 		var judul = data[i]["Title"];
-
-				// 		isi += '<div class="col-sm">';
-				// 		isi += '<a href="' + url + "buku/" + data[i]["ID"] + '">';
-				// 		isi += '<div class="card cardBuku">';
-				// 		isi += '<div class="card-header">';
-				// 		gambar = data[i]["ID"];
-				// 		var image = new Image();
-				// 		var url_image = url + "assets/img/cover/" + gambar + ".jpg";
-				// 		image.src = url_image;
-				// 		if (image.width == 0) {
-				// 			isi +=
-				// 				"<img src='" +
-				// 				url +
-				// 				"assets/img/cover/tdkada.gif' class='imgKoleksiBuku'>";
-				// 		} else {
-				// 			isi +=
-				// 				"<img src='" +
-				// 				url +
-				// 				"assets/img/cover/" +
-				// 				data[i]["ID"] +
-				// 				".jpg' class='imgKoleksiBuku'>";
-				// 		}
-				// 		isi += "</div>";
-				// 		isi += '<div class="card-body" style="color:black;">';
-				// 		judul = data[i]["Title"].split("/");
-				// 		isi += judul[0];
-				// 		isi += "</div>";
-				// 		isi += "</div>";
-				// 		isi += "</a>";
-				// 		isi += "</div>";
-				// 		$("#listBuku").prepend(isi);
-				// 	}
-
-				// 	$(".paginationn").html("");
-				// } else {
-				// 	$(".bukuPopuler").prepend(
-				// 		"<div class='text-center' id='takAda'><h3 class='text-center'>Maaf Buku Yang Anda Cari Tidak Tersedia</h3></div>"
-				// 	);
-				// 	$(".paginationn").html("");
-				// 	$("#listBuku").html("");
-				// }
 			},
 			error: function (jqXHR, textStatus, errorThrown) {
 				alert(jqXHR.responseText);

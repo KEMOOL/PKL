@@ -114,7 +114,8 @@ function getSelectTampilStatistikPengunjung() {
 			type: "GET",
 			dataType: "JSON",
 			success: function (data) {
-				for (var i = 0; i < Object.keys(data["data"]).length; i++) {
+				var i;
+				for (i = 0; i < Object.keys(data["data"]).length; i++) {
 					tempTotal = tempTotal + parseInt(data["data"][i]["total"],10);
 					arrTotal[i] = tempTotal;
 					label[i] = data["data"][i]["tahun"];
@@ -125,7 +126,7 @@ function getSelectTampilStatistikPengunjung() {
 				$("#rata2PengunjungWaktu").html(rata2);
 
 				totalJenisKelamin[0] = data["jenisKelaminNull"];
-				for (var i = 1; i < Object.keys(data["jenisKelamin"]).length; i++) {
+				for (i = 1; i < Object.keys(data["jenisKelamin"]).length; i++) {
 					totalJenisKelamin[
 						data["jenisKelamin"][i]["JenisKelamin_id"]
 					] = parseInt(data["jenisKelamin"][i]["total"],10);
@@ -900,7 +901,7 @@ function getDetailBuku() {
 					var judul = "";
 					tempIsbn = tempIsbn.split("-").join("").split("");
 					for (j = 0; j < tempIsbn.length; j++) {
-						if (j == 2 || j == 5 || j == 9 || j == 11) {
+						if (j === 2 || j === 5 || j === 9 || j === 11) {
 							isbn += tempIsbn[j] + "-";
 						} else {
 							isbn += tempIsbn[j];
@@ -1432,7 +1433,7 @@ $(".formTambahKegiatan").submit(function (event) {
 			},
 		});
 	} else {
-		if ($(".tempatError").children().hasClass("alert") != true) {
+		if ($(".tempatError").children().hasClass("alert") !== true) {
 			$(".tempatError").prepend(
 				'<div class="alert alert-danger">Mohon Lengkapi Form Diatas</div>'
 			);
@@ -1532,7 +1533,7 @@ function konfirmasiGantiPassword() {
 			$("#konfirmasiPasswordBaru").val("");
 		}
 	} else if (passwordBaru != konfirmasiPasswordBaru) {
-		if ($(".modal-body").children().hasClass("alert") != true) {
+		if ($(".modal-body").children().hasClass("alert") !== true) {
 			$(".modal-body").prepend(
 				'<div class="alert alert-danger">Password baru dan konfirmasi password baru tidak sama</div>'
 			);

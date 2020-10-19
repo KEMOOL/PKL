@@ -1,577 +1,642 @@
 @font-face {
-	font-family: "Damionregular";
-	src: url("damion-regular-webfont.woff2") format("woff2"),
-		url("damion-regular-webfont.woff") format("woff");
-	font-weight: normal;
-	font-style: normal;
+  font-family: "Damionregular";
+  src:
+    url("damion-regular-webfont.woff2") format("woff2"),
+    url("damion-regular-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
 }
 
 body {
-	font: 18px/1.4em poppins-extralight, poppins, sans-serif;
+  font: 18px/1.4em poppins-extralight, poppins, sans-serif;
 }
 
 input:focus,
 textarea:focus,
 select:focus,
 button:focus {
-	outline: none;
+  outline: none;
 }
+
 ::placeholder {
-	color: white;
-	opacity: 1; /* Firefox */
-	font-size: smaller;
+  color: white;
+  opacity: 1; /* Firefox */
+  font-size: smaller;
 }
 
 h2 {
-	text-align: center;
+  text-align: center;
 }
+
 a :hover {
-	text-decoration: none;
-	color: black;
+  text-decoration: none;
+  color: black;
 }
 
 .siteHeader {
-	padding-top: 1em;
+  padding-top: 1em;
 }
+
 .siteHeader h2 a {
-	font-family: "Damionregular", cursive;
-	font-size: 2em;
-	font-weight: bold;
-	color: #309aac;
-	text-decoration: none;
+  font-family: "Damionregular", cursive;
+  font-size: 2em;
+  font-weight: bold;
+  color: #309aac;
+  text-decoration: none;
 }
+
 .siteHeader h5 {
-	text-align: center;
-	color: #309aac;
-	font-weight: bold;
+  text-align: center;
+  color: #309aac;
+  font-weight: bold;
 }
 
 navbar {
-	padding: 0px !important;
-	-webkit-box-shadow: 4px 9px 25px -6px rgba(77, 77, 77, 0.61);
-	-moz-box-shadow: 4px 9px 25px -6px rgba(77, 77, 77, 0.61);
-	box-shadow: 4px 9px 25px -6px rgba(77, 77, 77, 0.61);
+  padding: 0 !important;
+  -webkit-box-shadow: 4px 9px 25px -6px rgba(77, 77, 77, 0.61);
+  -moz-box-shadow: 4px 9px 25px -6px rgba(77, 77, 77, 0.61);
+  box-shadow: 4px 9px 25px -6px rgba(77, 77, 77, 0.61);
 }
+
 ul.dropdown-menu {
-	width: 11vw;
-	border-radius: 0px;
-	font-weight: 400;
-	font-size: 0.9em;
-	line-height: 16px;
-	text-decoration: none;
-	padding: 0px;
-	list-style-type: none;
-	-webkit-animation: mymove 0.5s;
-	animation: mymove 0.5s;
-	background-color: #fff;
-	-webkit-box-shadow: 4px 9px 25px -6px rgba(77, 77, 77, 0.61);
-	-moz-box-shadow: 4px 9px 25px -6px rgba(77, 77, 77, 0.61);
-	box-shadow: 4px 9px 25px -6px rgba(77, 77, 77, 0.61);
+  width: 11vw;
+  border-radius: 0;
+  font-weight: 400;
+  font-size: 0.9em;
+  line-height: 16px;
+  text-decoration: none;
+  padding: 0;
+  list-style-type: none;
+  -webkit-animation: mymove 0.5s;
+  animation: mymove 0.5s;
+  background-color: #fff;
+  -webkit-box-shadow: 4px 9px 25px -6px rgba(77, 77, 77, 0.61);
+  -moz-box-shadow: 4px 9px 25px -6px rgba(77, 77, 77, 0.61);
+  box-shadow: 4px 9px 25px -6px rgba(77, 77, 77, 0.61);
 }
+
 li.dropdown:hover ul.dropdown-menu {
-	display: block;
+  display: block;
 }
 
 .dropdown-menu li:hover a {
-	color: #ec5626;
-	font-size: large;
+  color: #ec5626;
+  font-size: large;
 }
 
 .dropdown-menu li {
-	border-bottom: 1px solid #ccc;
-	display: block;
+  border-bottom: 1px solid #ccc;
+  display: block;
 }
+
 .dropdown-menu li a {
-	color: #444;
-	text-decoration: none;
-	text-transform: capitalize;
+  color: #444;
+  text-decoration: none;
+  text-transform: capitalize;
 }
+
 @keyframes mymove {
-	from {
-		left: 100px;
-		height: 0px;
-		opacity: 0;
-		border-bottom: 0px;
-	}
-	to {
-		height: auto;
-	}
+  from {
+    left: 100px;
+    height: 0;
+    opacity: 0;
+    border-bottom: 0;
+  }
+
+  to {
+    height: auto;
+  }
 }
 
 .navbar-nav a.nav-link {
-	font-family: "Roboto", sans-serif;
-	text-transform: uppercase;
-	padding: 0px !important;
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  padding: 0 !important;
 }
+
 ul.navbar-nav li.nav-item {
-	margin: auto 20px;
+  margin: auto 20px;
 }
+
 ul.navbar-nav .nav-item:after {
-	content: "";
-	display: block;
-	height: 3px;
-	width: 0;
-	transition: width 0.5s ease, background-color 0.5s ease;
+  content: "";
+  display: block;
+  height: 3px;
+  width: 0;
+  transition: width 0.5s ease, background-color 0.5s ease;
 }
+
 .navbar-nav .nav-item:hover:after {
-	width: 100%;
-	background: #1f394a;
+  width: 100%;
+  background: #1f394a;
 }
 
 .dropdown-item {
-	color: #9e9e9e;
+  color: #9e9e9e;
 }
 
 .imageMasuk {
-	margin: 8px;
-	color: #309aac;
-	display: inline-block;
-	padding: 0 10px;
-	padding-right: 0;
-	transition: color 0.4s ease 0s;
+  margin: 8px;
+  color: #309aac;
+  display: inline-block;
+  padding: 0 10px;
+  padding-right: 0;
+  transition: color 0.4s ease 0s;
 }
 
 .containerHeader {
-	background-color: #4e73df;
-	width: 100%;
-	text-align: center;
-	padding-top: 50px;
+  background-color: #4e73df;
+  width: 100%;
+  text-align: center;
+  padding-top: 50px;
 }
+
 .textHeader1 {
-	color: white;
-	padding-bottom: 50px;
-	font-size: 2.4em;
-	font-weight: bold;
+  color: white;
+  padding-bottom: 50px;
+  font-size: 2.4em;
+  font-weight: bold;
 }
+
 .textHeader2 {
-	font-size: 15px;
-	color: white;
+  font-size: 15px;
+  color: white;
 }
+
 .imgResponsive {
-	width: 100%;
-	max-width: 1000px;
+  width: 100%;
+  max-width: 1000px;
 }
+
 .containerIsi {
-	max-width: 700px;
-	width: auto;
-	margin: auto;
+  max-width: 700px;
+  width: auto;
+  margin: auto;
 }
 
 .textIsi1 {
-	font-size: 2em;
-	font-weight: bold;
-	color: #1f394a;
-	padding-bottom: 30px;
+  font-size: 2em;
+  font-weight: bold;
+  color: #1f394a;
+  padding-bottom: 30px;
 }
+
 label {
-	font-size: 14px;
+  font-size: 14px;
 }
+
 .custom-file-label {
-	top: 33px;
+  top: 33px;
 }
+
 .custom-file-label::after {
-	visibility: hidden;
+  visibility: hidden;
 }
 
 .form-control-user {
-	border: 0;
-	border-radius: 0;
-	border-bottom: 2px solid rgb(195, 123, 221);
-	background-color: rgb(215, 246, 234);
+  border: 0;
+  border-radius: 0;
+  border-bottom: 2px solid rgb(195, 123, 221);
+  background-color: rgb(215, 246, 234);
 }
+
 .form-control-user :focus {
-	outline: red;
+  outline: red;
 }
 
 .submit-button {
-	text-align: center;
+  text-align: center;
 }
+
 .submit-button button {
-	outline: 0;
-	background: #8e8e8e;
-	width: 100%;
-	max-width: 200px;
-	border-radius: 100px;
-	border: 0;
-	padding: 0.5em;
-	color: black;
-	font-size: 1em;
-	cursor: pointer;
+  outline: 0;
+  background: #8e8e8e;
+  width: 100%;
+  max-width: 200px;
+  border-radius: 100px;
+  border: 0;
+  padding: 0.5em;
+  color: black;
+  font-size: 1em;
+  cursor: pointer;
 }
+
 .submit-button button:hover {
-	background: #288bc4;
-	color: white;
+  background: #288bc4;
+  color: white;
 }
 
 .containerKegiatan {
-	max-width: 1400px;
-	width: 100%;
-	margin: auto;
+  max-width: 1400px;
+  width: 100%;
+  margin: auto;
 }
+
 .Kegiatan {
-	background-color: #4e73df;
-	height: 100%;
-	padding-bottom: 5px;
-	background-position: bottom 100px;
-	text-align: justify;
+  background-color: #4e73df;
+  height: 100%;
+  padding-bottom: 5px;
+  background-position: bottom 100px;
+  text-align: justify;
 }
+
 .gambarBagian1 {
-	margin: 0 0 15px 15px;
-	max-width: 600px;
-	width: 100%;
+  margin: 0 0 15px 15px;
+  max-width: 600px;
+  width: 100%;
 }
+
 .gambarBagian2 {
-	max-width: 800px;
-	width: 100%;
-	min-width: 400px;
-	display: block;
-	margin-top: 50px;
-	margin-bottom: 50px;
-	margin-left: auto;
-	margin-right: auto;
-	position: relative;
+  max-width: 800px;
+  width: 100%;
+  min-width: 400px;
+  display: block;
+  margin: 50px auto;
+  position: relative;
 }
+
 .containerIsibagian1 {
-	background-color: white;
-	padding-bottom: 50px;
-	color: black;
+  background-color: white;
+  padding-bottom: 50px;
+  color: black;
 }
+
 .containerIsibagian2 {
-	background-color: #e7f1f0;
-	max-width: 900px;
-	min-width: 400px;
-	width: auto;
-	margin: auto;
-	margin-top: 50px;
-	text-align: justify;
-	position: relative;
-	clear: both;
+  background-color: #e7f1f0;
+  max-width: 900px;
+  min-width: 400px;
+  width: auto;
+  margin: auto;
+  margin-top: 50px;
+  text-align: justify;
+  position: relative;
+  clear: both;
 }
 
 .containerIsiPanduan {
-	background-color: white;
-	max-width: 1000px;
-	width: auto;
-	margin: auto;
-	margin-top: -100px;
+  background-color: white;
+  max-width: 1000px;
+  width: auto;
+  margin: auto;
+  margin-top: -100px;
 }
+
 .namaPanduan {
-	color: black;
-	font-weight: bold;
-	margin-bottom: 40px;
+  color: black;
+  font-weight: bold;
+  margin-bottom: 40px;
 }
 
 .coverBuku {
-	width: 100%;
-	min-width: 400px;
+  width: 100%;
+  min-width: 400px;
 }
+
 .containerIsiBuku {
-	max-width: 1190px;
-	width: auto;
-	margin: auto;
+  max-width: 1190px;
+  width: auto;
+  margin: auto;
 }
+
 .textJudul {
-	text-align: center;
-	font-size: 30px;
-	color: #1f394a;
-	margin-bottom: 20px;
+  text-align: center;
+  font-size: 30px;
+  color: #1f394a;
+  margin-bottom: 20px;
 }
+
 .labelDetailBuku {
-	font-size: 12px;
-	margin-bottom: 2px;
+  font-size: 12px;
+  margin-bottom: 2px;
 }
+
 .detailBuku {
-	background-color: #dedee0;
-	color: #8e8e8e;
-	padding: 5px;
-	margin-bottom: 0;
+  background-color: #dedee0;
+  color: #8e8e8e;
+  padding: 5px;
+  margin-bottom: 0;
 }
+
 .containerSinopsis {
-	margin-top: 0;
-	padding: 0px 50px;
+  margin-top: 0;
+  padding: 0 50px;
 }
+
 .containerEbook {
-	padding: 40px 50px 0px 50px;
+  padding: 40px 50px 0 50px;
 }
+
 .ebook {
-	padding: 40px;
-	background-color: #288bc4;
+  padding: 40px;
+  background-color: #288bc4;
 }
+
 .labelebook {
-	color: #309aac;
-	font-style: italic;
+  color: #309aac;
+  font-style: italic;
 }
 
 .containerPencarian {
-	max-width: 1100px;
-	width: auto;
-	margin: auto;
-	margin-top: 10px;
-	margin-bottom: 40px;
+  max-width: 1100px;
+  width: auto;
+  margin: auto;
+  margin-top: 10px;
+  margin-bottom: 40px;
 }
+
 .pencarian {
-	border-radius: 1em;
-	width: 100%;
-	padding-left: 10px;
+  border-radius: 1em;
+  width: 100%;
+  padding-left: 10px;
 }
+
 .pencarian input {
-	border-radius: 1em;
-	width: 100%;
-	border: 3px solid #288bc4;
-	padding-left: 10px;
-	background-color: transparent;
+  border-radius: 1em;
+  width: 100%;
+  border: 3px solid #288bc4;
+  padding-left: 10px;
+  background-color: transparent;
 }
+
 .pencarian input:focus {
-	border: 3px solid #1f394a;
+  border: 3px solid #1f394a;
 }
+
 .buttonPencarian button {
-	border-radius: 2em;
-	width: calc(100% - 10px);
-	margin-right: 10px;
-	border: 3px solid #288bc4;
-	color: white;
-	font-size: 14px;
-	background-color: #288bc4;
+  border-radius: 2em;
+  width: calc(100% - 10px);
+  margin-right: 10px;
+  border: 3px solid #288bc4;
+  color: white;
+  font-size: 14px;
+  background-color: #288bc4;
 }
+
 .buttonPencarian button:hover {
-	border: 3px solid #1f394a;
-	font-size: 14px;
-	background-color: #1f394a;
-	color: white;
+  border: 3px solid #1f394a;
+  font-size: 14px;
+  background-color: #1f394a;
+  color: white;
 }
+
 .listBuku {
-	max-width: 1140px;
-	width: auto;
-	margin: auto;
+  max-width: 1140px;
+  width: auto;
+  margin: auto;
 }
+
 .card {
-	margin-bottom: 20px;
+  margin-bottom: 20px;
 }
+
 .imgKoleksiBuku {
-	width: 100%;
-	min-width: 200px;
+  width: 100%;
+  min-width: 200px;
 }
 
 .containerLogin {
-	max-width: 400px;
-	width: auto;
-	margin: auto;
+  max-width: 400px;
+  width: auto;
+  margin: auto;
 }
+
 .cardLogin {
-	background-color: rgba(148, 155, 156, 0.5);
-	padding-top: 20px;
+  background-color: rgba(148, 155, 156, 0.5);
+  padding-top: 20px;
 }
+
 .masuk {
-	background-image: url("../../assets/img/bg.png");
-	background-size: cover;
-	padding-top: 8%;
+  background-image: url("../../assets/img/bg.png");
+  background-size: cover;
+  padding-top: 8%;
 }
+
 .input-group-text {
-	background-color: #c37bdd;
-	border: 1px solid #c37bdd;
-	padding-left: 20px;
-	border-top-right-radius: 0;
-	border-top-left-radius: 10rem;
-	border-bottom-right-radius: 0;
-	border-bottom-left-radius: 10rem;
-	color: #d7f6ea;
+  background-color: #c37bdd;
+  border: 1px solid #c37bdd;
+  padding-left: 20px;
+  border-top-right-radius: 0;
+  border-top-left-radius: 10rem;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 10rem;
+  color: #d7f6ea;
 }
+
 .headerLogin {
-	font-size: 30px;
-	font-weight: bold;
+  font-size: 30px;
+  font-weight: bold;
 }
+
 .gambarHeaderLogin {
-	margin: auto;
-	max-width: 200px;
-	width: 100%;
-	max-height: 200px;
-	height: 100%;
-	margin-bottom: 10px;
+  margin: auto;
+  max-width: 200px;
+  width: 100%;
+  max-height: 200px;
+  height: 100%;
+  margin-bottom: 10px;
 }
 
 .textInput {
-	font-size: 1em;
-	font-weight: 400;
-	line-height: 1.5;
-	border: 0;
-	border-radius: 0;
-	color: white;
-	border-bottom: 3px solid #4e73df;
-	width: 100%;
-	height: calc(1.5em + 0.75rem + 2px);
-	padding: 0.375rem 0.75rem;
-	background-color: #8e8e8e;
-	transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  font-size: 1em;
+  font-weight: 400;
+  line-height: 1.5;
+  border: 0;
+  border-radius: 0;
+  color: white;
+  border-bottom: 3px solid #4e73df;
+  width: 100%;
+  height: calc(1.5em + 0.75rem + 2px);
+  padding: 0.375rem 0.75rem;
+  background-color: #8e8e8e;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
+
 .kosong {
-	border-bottom: 3px solid red;
+  border-bottom: 3px solid red;
 }
+
 .textInputArea {
-	font-size: 1em;
-	font-weight: 400;
-	line-height: 1.5;
-	border: 0;
-	color: white;
-	border-bottom: 3px solid #4e73df;
-	width: 100%;
-	height: 100px;
-	padding: 0.375rem 0.75rem;
-	background-color: #8e8e8e;
-	transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  font-size: 1em;
+  font-weight: 400;
+  line-height: 1.5;
+  border: 0;
+  color: white;
+  border-bottom: 3px solid #4e73df;
+  width: 100%;
+  height: 100px;
+  padding: 0.375rem 0.75rem;
+  background-color: #8e8e8e;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
+
 .textInput:focus,
 .textInputArea:focus {
-	background-color: #b5b5b4;
-	border-bottom: 3px solid #1f394a;
+  background-color: #b5b5b4;
+  border-bottom: 3px solid #1f394a;
 }
 
 .cardBuku {
-	border: none;
-	text-align: center;
-	box-shadow: none;
+  border: none;
+  text-align: center;
+  box-shadow: none;
 }
+
 .cardBuku .card-header {
-	padding: 0.75rem 1.25rem 0 1.25rem;
-	background-color: transparent;
-	border-bottom: none;
+  padding: 0.75rem 1.25rem 0 1.25rem;
+  background-color: transparent;
+  border-bottom: none;
 }
+
 .cardBuku .card-body {
-	padding-top: 0.5rem;
+  padding-top: 0.5rem;
 }
 
 .containerSliderKegiatan {
-	max-width: 1000px;
-	width: auto;
-	margin: auto;
-	margin-bottom: 50px;
-	padding: 20px;
-	background-color: darkgrey;
-	text-align: center;
+  max-width: 1000px;
+  width: auto;
+  margin: auto;
+  margin-bottom: 50px;
+  padding: 20px;
+  background-color: darkgrey;
+  text-align: center;
 }
+
 .containerSliderKegiatan h1 {
-	padding: 20px;
-	font-weight: bold;
-	color: black;
+  padding: 20px;
+  font-weight: bold;
+  color: black;
 }
 
 .containerHeaderBerita {
-	background-color: #4e73df;
+  background-color: #4e73df;
 }
 
 .containerIsiBerita {
-	max-width: 1111px;
-	width: 100%;
-	margin: auto;
-	padding-left: 10px;
-	padding-right: 10px;
+  max-width: 1111px;
+  width: 100%;
+  margin: auto;
+  padding-left: 10px;
+  padding-right: 10px;
 }
+
 .isiBerita img {
-	width: 100%;
+  width: 100%;
 }
+
 .isiBerita .judul {
-	padding-top: 10px;
-	font-size: 30px;
-	line-height: normal;
+  padding-top: 10px;
+  font-size: 30px;
+  line-height: normal;
 }
+
 .isiBerita .isi {
-	padding-top: 20px;
-	text-align: justify;
+  padding-top: 20px;
+  text-align: justify;
 }
 
 .panelBerita {
-	width: 100%;
-	background-color: #4e73df;
-	border: none;
-	text-align: center;
-	font-size: larger;
+  width: 100%;
+  background-color: #4e73df;
+  border: none;
+  text-align: center;
+  font-size: larger;
 }
+
 .bodyPanelBerita {
-	background-color: white;
-	margin: 10px;
-	font-size: 14px;
-	text-align: left;
+  background-color: white;
+  margin: 10px;
+  font-size: 14px;
+  text-align: left;
 }
 
 .containerBerita {
-	max-width: 1000px;
-	width: 100%;
-	margin: auto;
-	margin-top: 50px;
+  max-width: 1000px;
+  width: 100%;
+  margin: auto;
+  margin-top: 50px;
 }
 
 .containerSaran {
-	max-width: 900px;
-	width: 100%;
-	margin: auto;
+  max-width: 900px;
+  width: 100%;
+  margin: auto;
 }
+
 .headerKomentar {
-	text-align: center;
+  text-align: center;
 }
+
 .headerKomentar h1 {
-	color: black;
-	font-weight: bold;
+  color: black;
+  font-weight: bold;
 }
+
 .cardSaran {
-	border: none;
-	text-align: center;
-	box-shadow: none;
+  border: none;
+  text-align: center;
+  box-shadow: none;
 }
+
 .cardSaran .card-header {
-	padding: 0.75rem 1.25rem 0 1.25rem;
-	background-color: transparent;
-	border-bottom: none;
+  padding: 0.75rem 1.25rem 0 1.25rem;
+  background-color: transparent;
+  border-bottom: none;
 }
+
 .cardSaran .card-body {
-	padding-top: 0.5rem;
+  padding-top: 0.5rem;
 }
+
 .quote {
-	width: 50px;
-	margin: auto;
+  width: 50px;
+  margin: auto;
 }
+
 .footerQuote {
-	border: none;
-	background-color: transparent;
-	font-size: 0.9rem;
+  border: none;
+  background-color: transparent;
+  font-size: 0.9rem;
 }
 
 .cardPanduan {
-	box-shadow: none;
-	border-bottom: none;
-	background-color: transparent;
+  box-shadow: none;
+  border-bottom: none;
+  background-color: transparent;
 }
+
 .cardPanduan .card-header {
-	border-bottom: none;
-	background-color: transparent;
+  border-bottom: none;
+  background-color: transparent;
 }
 
 .cardAwal {
-	max-width: 700px;
-	margin: auto;
-	text-align: center;
-	align-content: center;
-	/* background-color: aqua; */
+  max-width: 700px;
+  margin: auto;
+  text-align: center;
+  align-content: center;
 }
 
 footer {
-	background-color: #1f394a;
+  background-color: #1f394a;
 }
 
 .footer1 {
-	font: normal normal bold 12px/1.4em poppins-extralight, poppins, sans-serif;
-	color: #b5b5b5;
+  font: normal normal bold 12px/1.4em poppins-extralight, poppins, sans-serif;
+  color: #b5b5b5;
 }
+
 .footer2 {
-	margin-top: 15px;
-	font: normal normal bold 12px/1.4em poppins-extralight, poppins, sans-serif;
-	color: #b5b5b5;
+  margin-top: 15px;
+  font: normal normal bold 12px/1.4em poppins-extralight, poppins, sans-serif;
+  color: #b5b5b5;
 }
 
 .text-warning :hover {
-	color: #dedee0;
-	text-decoration: none;
+  color: #dedee0;
+  text-decoration: none;
 }
 
 .footer-copyright {
-	font-size: 15px;
-	color: white;
+  font-size: 15px;
+  color: white;
 }

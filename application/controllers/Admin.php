@@ -464,24 +464,18 @@ class Admin extends CI_Controller
 
         $this->load->library('upload', $config);
 
-        $image1 = basename($_FILES["image1"]["name"]);
-        $image2 = basename($_FILES["image2"]["name"]);
-        if ($image1 != '') {
-            $this->upload->do_upload('image1');
-            $namaImage1 = $this->upload->data('file_name');
-        }
-        if ($image2 != '') {
-            $this->upload->do_upload('image2');
-            $namaImage2 = $this->upload->data('file_name');
-        }
+        $this->upload->do_upload('image1');
+        $image1 = $this->upload->data('file_name');
+        $this->upload->do_upload('image2');
+        $image2 = $this->upload->data('file_name');
         if (($image1 != '') && ($image2 != '')) {
-            $this->perpus->simpanKegiatanLama($idKegiatan, $namaImage1, $namaImage2);
+            $this->perpus->simpanKegiatanLama($idKegiatan, $image1, $image2);
             $this->session->set_flashdata('pesan', '<div id="flashData" value="ada">12345678</div>');
         } else if ($image1 != '') {
-            $this->perpus->simpanKegiatanLama($idKegiatan, $namaImage1, '');
+            $this->perpus->simpanKegiatanLama($idKegiatan, $image1, '');
             $this->session->set_flashdata('pesan', '<div id="flashData" value="ada">12345678</div>');
         } else if ($image2 != '') {
-            $this->perpus->simpanKegiatanLama($idKegiatan, '', $namaImage2);
+            $this->perpus->simpanKegiatanLama($idKegiatan, '', $image2);
             $this->session->set_flashdata('pesan', '<div id="flashData" value="ada">12345678</div>');
         } else {
             $this->perpus->simpanKegiatanLama($idKegiatan, '', '');

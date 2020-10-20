@@ -820,12 +820,12 @@
     noneSelectedText: 'Nothing selected',
     noneResultsText: 'No results matched {0}',
     countSelectedText: function (numSelected, numTotal) {
-      return (numSelected == 1) ? '{0} item selected' : '{0} items selected';
+      return (numSelected === 1) ? '{0} item selected' : '{0} items selected';
     },
     maxOptionsText: function (numAll, numGroup) {
       return [
-        (numAll == 1) ? 'Limit reached ({n} item max)' : 'Limit reached ({n} items max)',
-        (numGroup == 1) ? 'Group limit reached ({n} item max)' : 'Group limit reached ({n} items max)'
+        (numAll === 1) ? 'Limit reached ({n} item max)' : 'Limit reached ({n} items max)',
+        (numGroup === 1) ? 'Group limit reached ({n} item max)' : 'Group limit reached ({n} items max)'
       ];
     },
     selectAllText: 'Select All',
@@ -1823,8 +1823,8 @@
 
       if (that.options.container && $container.length && !$container.is('body')) {
         containerPos = $container.offset();
-        containerPos.top += parseInt($container.css('borderTopWidth'));
-        containerPos.left += parseInt($container.css('borderLeftWidth'));
+        containerPos.top += parseInt($container.css('borderTopWidth'), 10);
+        containerPos.left += parseInt($container.css('borderLeftWidth'), 10);
       } else {
         containerPos = { top: 0, left: 0 };
       }
@@ -2029,8 +2029,8 @@
 
             if (!$container.is('body')) {
               containerPos = $container.offset();
-              containerPos.top += parseInt($container.css('borderTopWidth')) - $container.scrollTop();
-              containerPos.left += parseInt($container.css('borderLeftWidth')) - $container.scrollLeft();
+              containerPos.top += parseInt($container.css('borderTopWidth'), 10) - $container.scrollTop();
+              containerPos.left += parseInt($container.css('borderLeftWidth'), 10) - $container.scrollLeft();
             } else {
               containerPos = { top: 0, left: 0 };
             }
@@ -2331,7 +2331,7 @@
                   maxReachedGrp = maxOptionsGrp < $optgroup.find('option:selected').length;
 
               if ((maxOptions && maxReached) || (maxOptionsGrp && maxReachedGrp)) {
-                if (maxOptions && maxOptions == 1) {
+                if (maxOptions && maxOptions === 1) {
                   $options.prop('selected', false);
                   $option.prop('selected', true);
 
@@ -2340,7 +2340,7 @@
                   }
 
                   that.setSelected(clickedIndex, true);
-                } else if (maxOptionsGrp && maxOptionsGrp == 1) {
+                } else if (maxOptionsGrp && maxOptionsGrp === 1) {
                   $optgroup.find('option:selected').prop('selected', false);
                   $option.prop('selected', true);
 

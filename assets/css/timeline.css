@@ -56,7 +56,7 @@
   }
 }
 
-.timeline-main .stepper.stepper-vertical.timeline li .step-content:before {
+.timeline-main .stepper.stepper-vertical.timeline li .step-content::before {
   position: absolute;
   top: 26px;
   right: -15px;
@@ -69,7 +69,7 @@
 }
 
 @media (max-width: 450px) {
-  .timeline-main .stepper.stepper-vertical.timeline li .step-content:before {
+  .timeline-main .stepper.stepper-vertical.timeline li .step-content::before {
     border-left-width: 0;
     border-right-width: 15px;
     left: -15px;
@@ -78,7 +78,7 @@
 }
 
 @media (min-width: 451px) and (max-width: 1025px) {
-  .timeline-main .stepper.stepper-vertical.timeline li .step-content:before {
+  .timeline-main .stepper.stepper-vertical.timeline li .step-content::before {
     border-left-width: 0;
     border-right-width: 15px;
     left: -15px;
@@ -86,7 +86,7 @@
   }
 }
 
-.timeline-main .stepper.stepper-vertical.timeline li .step-content:after {
+.timeline-main .stepper.stepper-vertical.timeline li .step-content::after {
   position: absolute;
   top: 27px;
   right: -14px;
@@ -99,7 +99,7 @@
 }
 
 @media (max-width: 450px) {
-  .timeline-main .stepper.stepper-vertical.timeline li .step-content:after {
+  .timeline-main .stepper.stepper-vertical.timeline li .step-content::after {
     border-left-width: 0;
     border-right-width: 14px;
     left: -14px;
@@ -108,7 +108,7 @@
 }
 
 @media (min-width: 451px) and (max-width: 1025px) {
-  .timeline-main .stepper.stepper-vertical.timeline li .step-content:after {
+  .timeline-main .stepper.stepper-vertical.timeline li .step-content::after {
     border-left-width: 0;
     border-right-width: 14px;
     left: -14px;
@@ -127,27 +127,21 @@
   float: right;
 }
 
-.timeline-main
-  .stepper.stepper-vertical.timeline
-  li.timeline-inverted
-  .step-content:before {
+.timeline-main .stepper.stepper-vertical.timeline li.timeline-inverted .step-content::before {
   border-left-width: 0;
   border-right-width: 15px;
   left: -15px;
   right: auto;
 }
 
-.timeline-main
-  .stepper.stepper-vertical.timeline
-  li.timeline-inverted
-  .step-content:after {
+.timeline-main .stepper.stepper-vertical.timeline li.timeline-inverted .step-content::after {
   border-left-width: 0;
   border-right-width: 14px;
   left: -14px;
   right: auto;
 }
 
-.timeline-main .stepper.stepper-vertical.timeline li:not(:last-child):after {
+.timeline-main .stepper.stepper-vertical.timeline li:not(:last-child)::after {
   content: " ";
   position: absolute;
   width: 3px;
@@ -158,13 +152,13 @@
 }
 
 @media (max-width: 450px) {
-  .timeline-main .stepper.stepper-vertical.timeline li:not(:last-child):after {
+  .timeline-main .stepper.stepper-vertical.timeline li:not(:last-child)::after {
     left: 6%;
   }
 }
 
 @media (min-width: 451px) and (max-width: 1025px) {
-  .timeline-main .stepper.stepper-vertical.timeline li:not(:last-child):after {
+  .timeline-main .stepper.stepper-vertical.timeline li:not(:last-child)::after {
     left: 6%;
   }
 }
@@ -178,20 +172,14 @@
   }
 }
 
-.timeline-main
-  .stepper.stepper-vertical.timeline.colorful-timeline
-  li
-  .step-content:before {
+.timeline-main .stepper.stepper-vertical.timeline.colorful-timeline li .step-content::before {
   top: 1rem;
   border-left: 15px solid #d32f2f;
   border-right: 0 solid #d32f2f;
 }
 
 @media (max-width: 450px) {
-  .timeline-main
-    .stepper.stepper-vertical.timeline.colorful-timeline
-    li
-    .step-content:before {
+  .timeline-main .stepper.stepper-vertical.timeline.colorful-timeline li .step-content::before {
     border-left-width: 0;
     border-right-width: 15px;
     left: -15px;
@@ -200,10 +188,7 @@
 }
 
 @media (min-width: 451px) and (max-width: 1025px) {
-  .timeline-main
-    .stepper.stepper-vertical.timeline.colorful-timeline
-    li
-    .step-content:before {
+  .timeline-main .stepper.stepper-vertical.timeline.colorful-timeline li .step-content::before {
     border-left-width: 0;
     border-right-width: 15px;
     left: -15px;
@@ -211,20 +196,14 @@
   }
 }
 
-.timeline-main
-  .stepper.stepper-vertical.timeline.colorful-timeline
-  li
-  .step-content:after {
+.timeline-main .stepper.stepper-vertical.timeline.colorful-timeline li .step-content::after {
   top: 1rem;
   border-left: 14px solid #d32f2f;
   border-right: 0 solid #d32f2f;
 }
 
 @media (max-width: 450px) {
-  .timeline-main
-    .stepper.stepper-vertical.timeline.colorful-timeline
-    li
-    .step-content:after {
+  .timeline-main .stepper.stepper-vertical.timeline.colorful-timeline li .step-content::after {
     border-left-width: 0;
     border-right-width: 14px;
     left: -14px;
@@ -233,10 +212,7 @@
 }
 
 @media (min-width: 451px) and (max-width: 1025px) {
-  .timeline-main
-    .stepper.stepper-vertical.timeline.colorful-timeline
-    li
-    .step-content:after {
+  .timeline-main .stepper.stepper-vertical.timeline.colorful-timeline li .step-content::after {
     border-left-width: 0;
     border-right-width: 14px;
     left: -14px;
@@ -244,44 +220,30 @@
   }
 }
 
-.timeline-main
-  .stepper.stepper-vertical.timeline.colorful-timeline
-  li
-  .step-content
-  .timeline-header {
+.timeline-main .stepper.stepper-vertical.timeline.colorful-timeline li .step-content .timeline-header {
   -webkit-border-top-left-radius: 2px;
   border-top-left-radius: 2px;
   -webkit-border-top-right-radius: 2px;
   border-top-right-radius: 2px;
 }
 
-.timeline-main
-  .stepper.stepper-vertical.timeline.colorful-timeline
-  li.timeline-inverted
-  .step-content:before {
+.timeline-main .stepper.stepper-vertical.timeline.colorful-timeline li.timeline-inverted .step-content::before {
   border-left-width: 0;
   border-right-width: 15px;
   left: -15px;
 }
 
-.timeline-main
-  .stepper.stepper-vertical.timeline.colorful-timeline
-  li.timeline-inverted
-  .step-content:after {
+.timeline-main .stepper.stepper-vertical.timeline.colorful-timeline li.timeline-inverted .step-content::after {
   border-left-width: 0;
   border-right-width: 14px;
   left: -14px;
 }
 
-.timeline-main
-  .stepper.stepper-vertical.timeline.colorful-timeline
-  li:not(:last-child):after {
+.timeline-main .stepper.stepper-vertical.timeline.colorful-timeline li:not(:last-child)::after {
   background-color: #d32f2f;
 }
 
-.timeline-main
-  .stepper.stepper-vertical.timeline.timeline-animated
-  .more-padding {
+.timeline-main .stepper.stepper-vertical.timeline.timeline-animated .more-padding {
   padding-right: 100px;
   padding-left: 100px;
 }
@@ -309,10 +271,7 @@
   z-index: 2;
 }
 
-.timeline-main
-  .stepper.stepper-vertical.timeline.timeline-simple
-  li
-  .step-content {
+.timeline-main .stepper.stepper-vertical.timeline.timeline-simple li .step-content {
   width: 45%;
   float: left;
   -webkit-border-radius: 2px;
@@ -321,10 +280,7 @@
 }
 
 @media (max-width: 450px) {
-  .timeline-main
-    .stepper.stepper-vertical.timeline.timeline-simple
-    li
-    .step-content {
+  .timeline-main .stepper.stepper-vertical.timeline.timeline-simple li .step-content {
     width: 80%;
     left: 3rem;
     margin-right: 3rem;
@@ -334,10 +290,7 @@
 }
 
 @media (min-width: 451px) and (max-width: 1025px) {
-  .timeline-main
-    .stepper.stepper-vertical.timeline.timeline-simple
-    li
-    .step-content {
+  .timeline-main .stepper.stepper-vertical.timeline.timeline-simple li .step-content {
     width: 85%;
     left: 3rem;
     margin-right: 3rem;
@@ -346,10 +299,7 @@
   }
 }
 
-.timeline-main
-  .stepper.stepper-vertical.timeline.timeline-simple
-  li
-  .step-content:before {
+.timeline-main .stepper.stepper-vertical.timeline.timeline-simple li .step-content::before {
   position: absolute;
   top: 15px;
   display: inline-block;
@@ -361,10 +311,7 @@
 }
 
 @media (max-width: 450px) {
-  .timeline-main
-    .stepper.stepper-vertical.timeline.timeline-simple
-    li
-    .step-content:before {
+  .timeline-main .stepper.stepper-vertical.timeline.timeline-simple li .step-content::before {
     border-left-width: 0;
     border-right-width: 15px;
     left: -15px;
@@ -373,10 +320,7 @@
 }
 
 @media (min-width: 451px) and (max-width: 1025px) {
-  .timeline-main
-    .stepper.stepper-vertical.timeline.timeline-simple
-    li
-    .step-content:before {
+  .timeline-main .stepper.stepper-vertical.timeline.timeline-simple li .step-content::before {
     border-left-width: 0;
     border-right-width: 15px;
     left: -15px;
@@ -384,10 +328,7 @@
   }
 }
 
-.timeline-main
-  .stepper.stepper-vertical.timeline.timeline-simple
-  li
-  .step-content:after {
+.timeline-main .stepper.stepper-vertical.timeline.timeline-simple li .step-content::after {
   position: absolute;
   top: 15px;
   display: inline-block;
@@ -399,10 +340,7 @@
 }
 
 @media (max-width: 450px) {
-  .timeline-main
-    .stepper.stepper-vertical.timeline.timeline-simple
-    li
-    .step-content:after {
+  .timeline-main .stepper.stepper-vertical.timeline.timeline-simple li .step-content::after {
     border-left-width: 0;
     border-right-width: 14px;
     left: -14px;
@@ -411,10 +349,7 @@
 }
 
 @media (min-width: 451px) and (max-width: 1025px) {
-  .timeline-main
-    .stepper.stepper-vertical.timeline.timeline-simple
-    li
-    .step-content:after {
+  .timeline-main .stepper.stepper-vertical.timeline.timeline-simple li .step-content::after {
     border-left-width: 0;
     border-right-width: 14px;
     left: -14px;
@@ -422,45 +357,34 @@
   }
 }
 
-.timeline-main
-  .stepper.stepper-vertical.timeline.timeline-simple
-  li
-  .step-content.hoverable {
-  -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16),
+.timeline-main .stepper.stepper-vertical.timeline.timeline-simple li .step-content.hoverable {
+  -webkit-box-shadow:
+    0 2px 5px 0 rgba(0, 0, 0, 0.16),
     0 2px 10px 0 rgba(0, 0, 0, 0.12);
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
 }
 
-.timeline-main.stepper.stepper-vertical.timeline.timeline-simple
-  li
-  .step-content.hoverable:hover {
-  -webkit-box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2),
+.timeline-main.stepper.stepper-vertical.timeline.timeline-simple li .step-content.hoverable:hover {
+  -webkit-box-shadow:
+    0 8px 17px 0 rgba(0, 0, 0, 0.2),
     0 6px 20px 0 rgba(0, 0, 0, 0.19);
   box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.timeline-main
-  .stepper.stepper-vertical.timeline.timeline-simple
-  li:not(:last-child):after {
+.timeline-main .stepper.stepper-vertical.timeline.timeline-simple li:not(:last-child)::after {
   width: 2px;
   background-color: #9e9e9e;
   top: 32px;
   height: 100%;
 }
 
-.timeline-main
-  .stepper.stepper-vertical.timeline.timeline-simple
-  li.timeline-inverted
-  .step-content:before {
+.timeline-main .stepper.stepper-vertical.timeline.timeline-simple li.timeline-inverted .step-content::before {
   border-left-width: 0;
   border-right-width: 15px;
   left: -15px;
 }
 
-.timeline-main
-  .stepper.stepper-vertical.timeline.timeline-simple
-  li.timeline-inverted
-  .step-content:after {
+.timeline-main .stepper.stepper-vertical.timeline.timeline-simple li.timeline-inverted .step-content::after {
   border-left-width: 0;
   border-right-width: 14px;
   left: -14px;
@@ -470,8 +394,6 @@
   font-size: 1rem;
 }
 
-.timeline-main
-  .stepper.stepper-vertical.timeline.timeline-images
-  li:not(:last-child):after {
+.timeline-main .stepper.stepper-vertical.timeline.timeline-images li:not(:last-child)::after {
   background-color: #26c6da;
 }

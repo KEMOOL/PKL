@@ -67,7 +67,7 @@ jQuery.getQueryParameters = function(s) {
  */
 jQuery.fn.highlightText = function(text, className) {
   function highlight(node) {
-    if (node.nodeType == 3) {
+    if (node.nodeType === 3) {
       var val = node.nodeValue;
       var pos = val.toLowerCase().indexOf(text);
       if (pos >= 0 && !jQuery(node.parentNode).hasClass(className)) {
@@ -131,7 +131,7 @@ var Documentation = {
    * i18n support
    */
   TRANSLATIONS : {},
-  PLURAL_EXPR : function(n) { return n == 1 ? 0 : 1; },
+  PLURAL_EXPR : function(n) { return n === 1 ? 0 : 1; },
   LOCALE : 'unknown',
 
   // gettext and ngettext don't access this so that the functions
@@ -146,7 +146,7 @@ var Documentation = {
   ngettext : function(singular, plural, n) {
     var translated = Documentation.TRANSLATIONS[singular];
     if (typeof translated == 'undefined')
-      return (n == 1) ? singular : plural;
+      return (n === 1) ? singular : plural;
     return translated[Documentation.PLURALEXPR(n)];
   },
 

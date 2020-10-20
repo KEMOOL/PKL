@@ -250,7 +250,7 @@
   _.shuffle = function(obj) {
     var shuffled = [], rand;
     each(obj, function(value, index, list) {
-      if (index == 0) {
+      if (index === 0) {
         shuffled[0] = value;
       } else {
         rand = Math.floor(Math.random() * (index + 1));
@@ -374,7 +374,7 @@
     var initial = iterator ? _.map(array, iterator) : array;
     var result = [];
     _.reduce(initial, function(memo, el, i) {
-      if (0 == i || (isSorted === true ? _.last(memo) != el : !_.include(memo, el))) {
+      if (0 === i || (isSorted === true ? _.last(memo) != el : !_.include(memo, el))) {
         memo[memo.length] = el;
         result[result.length] = array[i];
       }
@@ -495,7 +495,7 @@
   // all callbacks defined on an object belong to it.
   _.bindAll = function(obj) {
     var funcs = slice.call(arguments, 1);
-    if (funcs.length == 0) funcs = _.functions(obj);
+    if (funcs.length === 0) funcs = _.functions(obj);
     each(funcs, function(f) { obj[f] = _.bind(obj[f], obj); });
     return obj;
   };
@@ -690,7 +690,7 @@
       case '[object Number]':
         // `NaN`s are equivalent, but non-reflexive. An `egal` comparison is performed for
         // other numeric values.
-        return a != +a ? b != +b : (a == 0 ? 1 / a == 1 / b : a == +b);
+        return a != +a ? b != +b : (a === 0 ? 1 / a === 1 / b : a == +b);
       case '[object Date]':
       case '[object Boolean]':
         // Coerce dates and booleans to numeric primitive values. Dates are compared by their
@@ -768,7 +768,7 @@
 
   // Is a given value a DOM element?
   _.isElement = function(obj) {
-    return !!(obj && obj.nodeType == 1);
+    return !!(obj && obj.nodeType === 1);
   };
 
   // Is a given value an array?

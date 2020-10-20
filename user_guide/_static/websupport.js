@@ -458,8 +458,8 @@
     // If this is not an unvote, and the other vote arrow has
     // already been pressed, unpress it.
     if ((d.value !== 0) && (data.vote === d.value * -1)) {
-      $('#' + (d.value == 1 ? 'd' : 'u') + 'u' + d.comment_id).hide();
-      $('#' + (d.value == 1 ? 'd' : 'u') + 'v' + d.comment_id).show();
+      $('#' + (d.value === 1 ? 'd' : 'u') + 'u' + d.comment_id).hide();
+      $('#' + (d.value === 1 ? 'd' : 'u') + 'v' + d.comment_id).show();
     }
 
     // Update the comments rating in the local data.
@@ -469,7 +469,7 @@
 
     // Change the rating text.
     div.find('.rating:first')
-      .text(data.rating + ' point' + (data.rating == 1 ? '' : 's'));
+      .text(data.rating + ' point' + (data.rating === 1 ? '' : 's'));
 
     // Send the vote information to the server.
     $.ajax({
@@ -559,7 +559,7 @@
     }
     // Prettify the comment rating.
     comment.pretty_rating = comment.rating + ' point' +
-      (comment.rating == 1 ? '' : 's');
+      (comment.rating === 1 ? '' : 's');
     // Make a class (for displaying not yet moderated comments differently)
     comment.css_class = comment.displayed ? '' : ' moderate';
     // Create a div for this comment.
@@ -568,7 +568,7 @@
 
     // If the user has voted on this comment, highlight the correct arrow.
     if (comment.vote) {
-      var direction = (comment.vote == 1) ? 'u' : 'd';
+      var direction = (comment.vote === 1) ? 'u' : 'd';
       div.find('#' + direction + 'v' + comment.id).hide();
       div.find('#' + direction + 'u' + comment.id).show();
     }
@@ -622,9 +622,9 @@
     return this.each(function() {
       var id = $(this).attr('id').substring(1);
       var count = COMMENT_METADATA[id];
-      var title = count + ' comment' + (count == 1 ? '' : 's');
+      var title = count + ' comment' + (count === 1 ? '' : 's');
       var image = count > 0 ? opts.commentBrightImage : opts.commentImage;
-      var addcls = count == 0 ? ' nocomment' : '';
+      var addcls = count === 0 ? ' nocomment' : '';
       $(this)
         .append(
           $(document.createElement('a')).attr({

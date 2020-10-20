@@ -1,4 +1,4 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 ?>
-<?= "\nERROR: ", $heading, "\n\n", $message, "\n\n" ?>
+<?= "\nERROR: ", filter_var($heading, FILTER_DEFAULT), "\n\n", filter_var($message, FILTER_DEFAULT), "\n\n" ?>

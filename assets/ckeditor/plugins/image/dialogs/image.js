@@ -432,7 +432,7 @@
 								},
 								validate: CKEDITOR.dialog.validate.integer(d.lang.image.validateVSpace),
 								setup: function (a, b) {
-									if (1 == a) {
+									if (1 === a) {
 										var c, d;
 										c = b.getStyle("margin-top");
 										d = b.getStyle("margin-bottom");

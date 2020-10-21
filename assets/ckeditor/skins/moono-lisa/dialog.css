@@ -377,7 +377,7 @@ a.cke_dialog_ui_button {
 }
 
 .cke_hc a.cke_dialog_ui_button {
-  border-width: 3px;
+  border: 3px solid #bcbcbc;
 }
 
 span.cke_dialog_ui_button {
@@ -413,10 +413,6 @@ a.cke_dialog_ui_button_ok {
   color: #fff;
   background: #09863e;
   border: 1px solid #09863e;
-}
-
-.cke_hc a.cke_dialog_ui_button {
-  border: 3px solid #bcbcbc;
 }
 
 a.cke_dialog_ui_button_ok:hover {

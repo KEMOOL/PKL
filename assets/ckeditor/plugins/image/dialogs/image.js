@@ -468,7 +468,7 @@
 									g.call(this, "advanced:txtdlgGenStyle")
 								},
 								setup: function (a, b) {
-									if (1 == a) {
+									if (1 === a) {
 										var c = b.getStyle("float");
 										switch (c) {
 											case "inherit":
@@ -686,7 +686,7 @@
 					validate: CKEDITOR.dialog.validate.inlineStyle(d.lang.common.invalidInlineStyle),
 					"default": "",
 					setup: function (a, b) {
-						if (1 == a) {
+						if (1 === a) {
 							var c = b.getAttribute("style");
 							!c && b.$.style.cssText && (c = b.$.style.cssText);
 							this.setValue(c);

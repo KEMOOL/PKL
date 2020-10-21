@@ -5812,7 +5812,7 @@ readers do not read off random characters that represent icons */
 }
 
 .fab {
-  font-family: "Font Awesome 5 Brands";
+  font-family: "Font Awesome 5 Brands", sans-serif;
 }
 
 @font-face {
@@ -5830,7 +5830,7 @@ readers do not read off random characters that represent icons */
 }
 
 .far {
-  font-family: "Font Awesome 5 Free";
+  font-family: "Font Awesome 5 Free", sans-serif;
   font-weight: 400;
 }
 
@@ -5850,6 +5850,6 @@ readers do not read off random characters that represent icons */
 
 .fa,
 .fas {
-  font-family: "Font Awesome 5 Free";
+  font-family: "Font Awesome 5 Free", sans-serif;
   font-weight: 900;
 }

@@ -79,6 +79,12 @@ li.dropdown:hover ul.dropdown-menu {
   display: block;
 }
 
+.dropdown-menu li a {
+  color: #444;
+  text-decoration: none;
+  text-transform: capitalize;
+}
+
 .dropdown-menu li:hover a {
   color: #ec5626;
   font-size: large;
@@ -87,12 +93,6 @@ li.dropdown:hover ul.dropdown-menu {
 .dropdown-menu li {
   border-bottom: 1px solid #ccc;
   display: block;
-}
-
-.dropdown-menu li a {
-  color: #444;
-  text-decoration: none;
-  text-transform: capitalize;
 }
 
 @keyframes mymove {
@@ -118,7 +118,7 @@ ul.navbar-nav li.nav-item {
   margin: auto 20px;
 }
 
-ul.navbar-nav .nav-item:after {
+ul.navbar-nav .nav-item::after {
   content: "";
   display: block;
   height: 3px;
@@ -126,7 +126,7 @@ ul.navbar-nav .nav-item:after {
   transition: width 0.5s ease, background-color 0.5s ease;
 }
 
-.navbar-nav .nav-item:hover:after {
+.navbar-nav .nav-item:hover::after {
   width: 100%;
   background: #1f394a;
 }
@@ -219,6 +219,16 @@ label {
   color: black;
   font-size: 1em;
   cursor: pointer;
+}
+
+.buttonPencarian button {
+  border-radius: 2em;
+  width: calc(100% - 10px);
+  margin-right: 10px;
+  border: 3px solid #288bc4;
+  color: white;
+  font-size: 14px;
+  background-color: #288bc4;
 }
 
 .submit-button button:hover {
@@ -360,16 +370,6 @@ label {
 
 .pencarian input:focus {
   border: 3px solid #1f394a;
-}
-
-.buttonPencarian button {
-  border-radius: 2em;
-  width: calc(100% - 10px);
-  margin-right: 10px;
-  border: 3px solid #288bc4;
-  color: white;
-  font-size: 14px;
-  background-color: #288bc4;
 }
 
 .buttonPencarian button:hover {

@@ -277,13 +277,18 @@ div.cke_disabled .cke_dialog_ui_labeled_content div * {
 
 .cke_ltr .cke_dialog_footer_buttons .cke_dialog_ui_hbox_first,
 .cke_ltr .cke_dialog_footer_buttons .cke_dialog_ui_hbox_child {
-  padding-right: 5px;
+	padding-right: 5px;
+	padding-right: 2px !important;
 }
 
 .cke_rtl .cke_dialog_footer_buttons .cke_dialog_ui_hbox_first,
 .cke_rtl .cke_dialog_footer_buttons .cke_dialog_ui_hbox_child {
   padding-left: 5px;
   padding-right: 0;
+}
+
+div.cke_dialog_ui_input_select {
+  display: table;
 }
 
 .cke_hc div.cke_dialog_ui_input_text,
@@ -321,6 +326,19 @@ input.cke_dialog_ui_input_password:hover,
 input.cke_dialog_ui_input_tel:hover,
 textarea.cke_dialog_ui_input_textarea:hover {
   border: 1px solid #aeb3b9;
+}
+
+select.cke_dialog_ui_input_select {
+  height: 28px;
+  line-height: 28px;
+  background-color: #fff;
+  border: 1px solid #bcbcbc;
+  padding: 3px 3px 3px 6px;
+  outline: 0;
+  border-radius: 2px;
+  margin: 0 1px;
+  box-sizing: border-box;
+  width: calc(100% - 2px) !important;
 }
 
 input.cke_dialog_ui_input_text:focus,
@@ -454,26 +472,15 @@ a.cke_dialog_ui_button_ok.cke_disabled span {
   vertical-align: middle;
 }
 
-div.cke_dialog_ui_input_select {
-  display: table;
-}
-
-select.cke_dialog_ui_input_select {
-  height: 28px;
-  line-height: 28px;
-  background-color: #fff;
-  border: 1px solid #bcbcbc;
-  padding: 3px 3px 3px 6px;
-  outline: 0;
-  border-radius: 2px;
-  margin: 0 1px;
-  box-sizing: border-box;
-  width: calc(100% - 2px) !important;
-}
-
 .cke_dialog_ui_input_file {
   width: 100%;
   height: 25px;
+}
+
+.cke_dialog .cke_pastetext textarea {
+  width: 340px;
+  height: 170px;
+  resize: none;
 }
 
 .cke_hc .cke_dialog_ui_labeled_content input:focus,
@@ -505,6 +512,7 @@ select.cke_dialog_ui_input_select {
   height: 16px;
   border: 1px none;
   font-size: 1px;
+  margin: 2px;
 }
 
 .cke_hidpi .cke_dialog a.cke_btn_reset {
@@ -524,11 +532,6 @@ select.cke_dialog_ui_input_select {
   background-repeat: no-repeat;
   border: none 1px;
   font-size: 1px;
-}
-
-.cke_dialog a.cke_btn_locked,
-.cke_dialog a.cke_btn_unlocked,
-.cke_dialog a.cke_btn_reset {
   margin: 2px;
 }
 
@@ -595,6 +598,12 @@ select.cke_dialog_ui_input_select {
   padding-top: 5px;
 }
 
+.cke_dialog_body label {
+  display: inline;
+  cursor: default;
+  letter-spacing: 0.3px;
+}
+
 .cke_dialog_ui_checkbox .cke_dialog_ui_checkbox_input,
 .cke_dialog_ui_checkbox .cke_dialog_ui_checkbox_input + label,
 .cke_dialog fieldset .cke_dialog_ui_vbox .cke_dialog_ui_checkbox .cke_dialog_ui_checkbox_input,
@@ -643,12 +652,6 @@ select.cke_dialog_ui_input_select {
   height: 170px;
 }
 
-.cke_dialog .cke_pastetext textarea {
-  width: 340px;
-  height: 170px;
-  resize: none;
-}
-
 .cke_dialog iframe.cke_pasteframe {
   width: 346px;
   height: 130px;
@@ -667,12 +670,6 @@ select.cke_dialog_ui_input_select {
 
 .cke_dialog_body .cke_label {
   display: none;
-}
-
-.cke_dialog_body label {
-  display: inline;
-  cursor: default;
-  letter-spacing: 0.3px;
 }
 
 .cke_dialog_body label + .cke_dialog_ui_labeled_content {
@@ -838,8 +835,6 @@ a.cke_dialog_ui_button.cke_dialog_image_browse {
 }
 
 .cke_rtl .cke_dialog_ui_vbox_child,
-.cke_rtl .cke_dialog_ui_hbox_child,
-.cke_rtl .cke_dialog_ui_hbox_first,
 .cke_rtl .cke_dialog_ui_hbox_last {
   padding-right: 2px !important;
 }

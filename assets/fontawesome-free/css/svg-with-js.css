@@ -469,6 +469,11 @@ svg:not(:root).svg-inline--fa {
   opacity: var(--fa-secondary-opacity, 0.4);
 }
 
+.svg-inline--fa mask .fa-primary,
+.svg-inline--fa mask .fa-secondary {
+  fill: black;
+}
+
 .svg-inline--fa.fa-swap-opacity .fa-primary {
   opacity: 0.4;
   opacity: var(--fa-secondary-opacity, 0.4);
@@ -477,11 +482,6 @@ svg:not(:root).svg-inline--fa {
 .svg-inline--fa.fa-swap-opacity .fa-secondary {
   opacity: 1;
   opacity: var(--fa-primary-opacity, 1);
-}
-
-.svg-inline--fa mask .fa-primary,
-.svg-inline--fa mask .fa-secondary {
-  fill: black;
 }
 
 .fad.fa-inverse {

@@ -1,8 +1,4 @@
-﻿.fa::before {
-  -webkit-font-smoothing: antialiased;
-}
-
-.clearfix {
+﻿.clearfix {
   *zoom: 1;
 }
 
@@ -30,11 +26,12 @@
 
 .fa::before {
   display: inline-block;
-  font-family: FontAwesome;
+  font-family: FontAwesome, sans-serif;
   font-style: normal;
   font-weight: normal;
   line-height: 1;
   text-decoration: inherit;
+  -webkit-font-smoothing: antialiased;
 }
 
 a .fa {
@@ -168,15 +165,15 @@ ul.fas li .fa-large::before {
   color: #000;
 }
 
-.rst-versions.shift-up .rst-other-versions {
-  display: block;
-}
-
 .rst-versions .rst-other-versions {
   font-size: 90%;
   padding: 12px;
   color: gray;
   display: none;
+}
+
+.rst-versions.shift-up .rst-other-versions {
+  display: block;
 }
 
 .rst-versions .rst-other-versions hr {
@@ -216,6 +213,15 @@ ul.fas li .fa-large::before {
   float: none;
 }
 
+.rst-versions.rst-badge .rst-current-version {
+  width: auto;
+  height: 30px;
+  line-height: 30px;
+  padding: 0 6px;
+  display: block;
+  text-align: center;
+}
+
 .rst-versions.rst-badge.shift-up .rst-current-version {
   text-align: right;
 }
@@ -226,15 +232,6 @@ ul.fas li .fa-large::before {
 
 .rst-versions.rst-badge.shift-up .rst-current-version .icon-book {
   float: left;
-}
-
-.rst-versions.rst-badge .rst-current-version {
-  width: auto;
-  height: 30px;
-  line-height: 30px;
-  padding: 0 6px;
-  display: block;
-  text-align: center;
 }
 
 @media screen and (max-width: 768px) {

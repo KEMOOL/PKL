@@ -88,6 +88,16 @@ table.dataTable thead > tr > td.sorting {
   padding-right: 30px;
 }
 
+table.table-bordered.dataTable th,
+table.table-bordered.dataTable td {
+  border-left-width: 0;
+}
+
+table.table-bordered.dataTable tbody th,
+table.table-bordered.dataTable tbody td {
+  border-bottom-width: 0;
+}
+
 table.dataTable thead > tr > th:active,
 table.dataTable thead > tr > td:active {
   outline: none;
@@ -165,6 +175,10 @@ div.dataTables_scrollBody table thead .sorting_desc::after {
   display: none;
 }
 
+table.dataTable.table-sm > thead > tr > th {
+  padding-right: 20px;
+}
+
 div.dataTables_scrollBody table tbody tr:first-child th,
 div.dataTables_scrollBody table tbody tr:first-child td {
   border-top: none;
@@ -188,10 +202,6 @@ div.dataTables_scrollFoot > .dataTables_scrollFootInner > table {
   }
 }
 
-table.dataTable.table-sm > thead > tr > th {
-  padding-right: 20px;
-}
-
 table.dataTable.table-sm .sorting::before,
 table.dataTable.table-sm .sorting_asc::before,
 table.dataTable.table-sm .sorting_desc::before {
@@ -205,18 +215,8 @@ table.dataTable.table-sm .sorting_desc::after {
   top: 5px;
 }
 
-table.table-bordered.dataTable th,
-table.table-bordered.dataTable td {
-  border-left-width: 0;
-}
-
 table.table-bordered.dataTable td:last-child {
   border-right-width: 0;
-}
-
-table.table-bordered.dataTable tbody th,
-table.table-bordered.dataTable tbody td {
-  border-bottom-width: 0;
 }
 
 div.dataTables_scrollHead table.table-bordered {

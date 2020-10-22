@@ -15,7 +15,7 @@ var _ = function(id) {
 };
 
 _.nopx = function(val) {
-    return parseInt(val.replace(/^(\d+)px$/, "$1"));
+    return parseInt(val.replace(/^(\d+)px$/, "$1"), 10);
 };
 
 _.unselect = function() {
@@ -199,7 +199,7 @@ _.kuki = {
             while (kuki.charAt(0) == ' ')
                 kuki = kuki.substring(1, kuki.length);
 
-            if (kuki.indexOf(nameEQ) == 0)
+            if (kuki.indexOf(nameEQ) === 0)
                 return kuki.substring(nameEQ.length, kuki.length);
         }
 

@@ -50,8 +50,8 @@ browser.showDialog = function(e) {
     $('#dialog').css('display', 'block');
 
     if (e) {
-        var left = e.pageX - parseInt($('#dialog').outerWidth() / 2);
-        var top = e.pageY - parseInt($('#dialog').outerHeight() / 2);
+        var left = e.pageX - parseInt($('#dialog').outerWidth() / 2, 10);
+        var top = e.pageY - parseInt($('#dialog').outerHeight() / 2, 10);
         if (left < 0) left = 0;
         if (top < 0) top = 0;
         if (($('#dialog').outerWidth() + left) > $(window).width())
@@ -64,12 +64,12 @@ browser.showDialog = function(e) {
         });
     } else
         $('#dialog').css({
-            left: parseInt(($(window).width() - $('#dialog').outerWidth()) / 2) + 'px',
-            top: parseInt(($(window).height() - $('#dialog').outerHeight()) / 2) + 'px'
+            left: parseInt(($(window).width() - $('#dialog').outerWidth()) / 2, 10) + 'px',
+            top: parseInt(($(window).height() - $('#dialog').outerHeight()) / 2, 10) + 'px'
         });
     $(document).unbind('keydown');
     $(document).keydown(function(e) {
-        if (e.keyCode == 27)
+        if (e.keyCode === 27)
             browser.hideDialog();
     });
 };
@@ -99,8 +99,8 @@ browser.showAlert = function(shadow) {
         shadow = true;
     if (shadow)
         this.shadow();
-    var left = parseInt(($(window).width() - $('#alert').outerWidth()) / 2),
-        top = parseInt(($(window).height() - $('#alert').outerHeight()) / 2);
+    var left = parseInt(($(window).width() - $('#alert').outerWidth()) / 2, 10),
+        top = parseInt(($(window).height() - $('#alert').outerHeight()) / 2, 10);
     var wheight = $(window).height();
     if (top < 0)
         top = 0;
@@ -116,7 +116,7 @@ browser.showAlert = function(shadow) {
     }
     $(document).unbind('keydown');
     $(document).keydown(function(e) {
-        if (e.keyCode == 27) {
+        if (e.keyCode === 27) {
             browser.hideDialog();
             browser.hideAlert();
             $(document).unbind('keydown');
@@ -315,16 +315,16 @@ browser.humanSize = function(size) {
         size = size.toString() + ' B';
     } else if (size < 1048576) {
         size /= 1024;
-        size = parseInt(size).toString() + ' KB';
+        size = parseInt(size, 10).toString() + ' KB';
     } else if (size < 1073741824) {
         size /= 1048576;
-        size = parseInt(size).toString() + ' MB';
+        size = parseInt(size, 10).toString() + ' MB';
     } else if (size < 1099511627776) {
         size /= 1073741824;
-        size = parseInt(size).toString() + ' GB';
+        size = parseInt(size, 10).toString() + ' GB';
     } else {
         size /= 1099511627776;
-        size = parseInt(size).toString() + ' TB';
+        size = parseInt(size, 10).toString() + ' TB';
     }
     return size;
 };

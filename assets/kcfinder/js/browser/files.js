@@ -118,7 +118,7 @@ browser.selectFile = function(file, e) {
             this.statusDir();
         else {
             $.each(files, function(i, cfile) {
-                size += parseInt($(cfile).data('size'));
+                size += parseInt($(cfile).data('size'), 10);
             });
             size = this.humanSize(size);
             if (files.length > 1)
@@ -137,7 +137,7 @@ browser.selectFile = function(file, e) {
 };
 
 browser.selectAll = function(e) {
-    if ((!e.ctrlKey && !e.metaKey) || ((e.keyCode != 65) && (e.keyCode != 97)))
+    if ((!e.ctrlKey && !e.metaKey) || ((e.keyCode !== 65) && (e.keyCode !== 97)))
         return false;
     var files = $('.file').get();
     if (files.length) {
@@ -145,7 +145,7 @@ browser.selectAll = function(e) {
         $.each(files, function(i, file) {
             if (!$(file).hasClass('selected'))
                 $(file).addClass('selected');
-            size += parseInt($(file).data('size'));
+            size += parseInt($(file).data('size'), 10);
         });
         size = this.humanSize(size);
         $('#fileinfo').html(files.length + ' ' + this.label("selected files") + ' (' + size + ')');
@@ -541,9 +541,9 @@ browser.menuFile = function(file, e) {
                     var f_h = $(window).height() - 30;
                     if ((o_w > f_w) || (o_h > f_h)) {
                         if ((f_w / f_h) > (o_w / o_h))
-                            f_w = parseInt((o_w * f_h) / o_h);
+                            f_w = parseInt((o_w * f_h) / o_h, 10);
                         else if ((f_w / f_h) < (o_w / o_h))
-                            f_h = parseInt((o_h * f_w) / o_w);
+                            f_h = parseInt((o_h * f_w) / o_w, 10);
                         $('#dialog img').attr({
                             width: f_w,
                             height: f_h
@@ -572,14 +572,14 @@ browser.menuFile = function(file, e) {
                                 $(document).unbind('keydown');
                                 $(document).keydown(function(e) {
                                     if (images.length > 1) {
-                                        if (!browser.lock && (e.keyCode == 37)) {
+                                        if (!browser.lock && (e.keyCode === 37)) {
                                             var nimg = i
                                                 ? images[i - 1]
                                                 : images[images.length - 1];
                                             browser.lock = true;
                                             showImage(nimg);
                                         }
-                                        if (!browser.lock && (e.keyCode == 39)) {
+                                        if (!browser.lock && (e.keyCode === 39)) {
                                             var nimg = (i >= images.length - 1)
                                                 ? images[0]
                                                 : images[i + 1];
@@ -587,7 +587,7 @@ browser.menuFile = function(file, e) {
                                             showImage(nimg);
                                         }
                                     }
-                                    if (e.keyCode == 27) {
+                                    if (e.keyCode === 27) {
                                         browser.hideDialog();
                                         $(document).unbind('keydown');
                                         $(document).keydown(function(e) {

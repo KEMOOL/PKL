@@ -26,6 +26,10 @@ div.related h3 {
   display: none;
 }
 
+dd ul {
+  margin-bottom: 10px;
+}
+
 .field-list ul {
   margin: 0;
   padding-left: 1em;
@@ -208,6 +212,16 @@ table.modindextable td {
   margin: 0;
 }
 
+dd {
+  margin-top: 3px;
+  margin-bottom: 10px;
+  margin-left: 30px;
+}
+
+dd p {
+  margin-top: 0;
+}
+
 div.body p,
 div.body dd,
 div.body li,
@@ -220,6 +234,12 @@ div.body blockquote {
 
 a.headerlink {
   visibility: hidden;
+}
+
+span.eqno a.headerlink {
+  position: relative;
+  left: 0;
+  z-index: 1;
 }
 
 h1:hover > a.headerlink,
@@ -325,8 +345,17 @@ div.admonition {
   padding: 7px;
 }
 
+dt:target,
+.highlighted {
+  background-color: #fbe54e;
+}
+
 div.admonition dt {
   font-weight: bold;
+}
+
+dl {
+  margin-bottom: 15px;
 }
 
 div.admonition dl {
@@ -393,6 +422,11 @@ div.figure p.caption {
   padding: 0.3em;
 }
 
+div.code-block-caption span.caption-number {
+  padding: 0.1em 0.3em;
+  font-style: italic;
+}
+
 div.figure p.caption span.caption-number {
   font-style: italic;
 }
@@ -433,26 +467,10 @@ ol.upperroman {
   list-style: upper-roman;
 }
 
-dl {
-  margin-bottom: 15px;
-}
-
-dd p {
-  margin-top: 0;
-}
-
-dd ul,
 dd table {
   margin-bottom: 10px;
 }
 
-dd {
-  margin-top: 3px;
-  margin-bottom: 10px;
-  margin-left: 30px;
-}
-
-dt:target,
 .highlighted {
   background-color: #fbe54e;
 }
@@ -549,17 +567,26 @@ div.code-block-caption {
   font-size: small;
 }
 
+a code {
+  background-color: transparent;
+  font-weight: bold;
+}
+
+h1 code,
+h2 code,
+h3 code,
+h4 code,
+h5 code,
+h6 code {
+  background-color: transparent;
+}
+
 div.code-block-caption code {
   background-color: transparent;
 }
 
 div.code-block-caption + div > div.highlight > pre {
   margin-top: 0;
-}
-
-div.code-block-caption span.caption-number {
-  padding: 0.1em 0.3em;
-  font-style: italic;
 }
 
 div.literal-block-wrapper {
@@ -580,19 +607,9 @@ code.descclassname {
   background-color: transparent;
 }
 
-code.xref,
-a code {
+code.xref {
   background-color: transparent;
   font-weight: bold;
-}
-
-h1 code,
-h2 code,
-h3 code,
-h4 code,
-h5 code,
-h6 code {
-  background-color: transparent;
 }
 
 .viewcode-link {
@@ -621,12 +638,6 @@ div.body div.math p {
 
 span.eqno {
   float: right;
-}
-
-span.eqno a.headerlink {
-  position: relative;
-  left: 0;
-  z-index: 1;
 }
 
 div.math:hover a.headerlink {

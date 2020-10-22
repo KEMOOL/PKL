@@ -3,57 +3,54 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Berita extends CI_Controller
 {
-    public function index()
-    {
-        $this->load->library('pagination');
-        $this->load->library('configpagination');
+	public function index()
+	{
+		$this->load->library('pagination');
+		$this->load->library('configpagination');
 
-        $config['base_url'] = base_url() . 'berita/index';
-        $config['total_rows'] = $this->perpus->countTotalBerita();
-        $config['per_page'] = 1;
+		$config['base_url'] = base_url() . 'berita/index';
+		$config['total_rows'] = $this->perpus->countTotalBerita();
+		$config['per_page'] = 1;
 
-        $config = $this->configpagination->config($config);
+		$config = $this->configpagination->config($config);
 
-        $this->pagination->initialize($config);
+		$this->pagination->initialize($config);
 
-        $data['title'] = 'Berita';
-        $data['listKegiatan'] = $this->perpus->getListKegiatan();
-        $data['berita'] = $this->perpus->getListBeritaLimit($config['per_page'], $this->uri->segment(3));
-        $data['beritaTerbaru'] = $this->perpus->getListBeritaTerbaru();
+		$data['title'] = 'Berita';
+		$data['listKegiatan'] = $this->perpus->getListKegiatan();
+		$data['berita'] = $this->perpus->getListBeritaLimit($config['per_page'], $this->uri->segment(3));
+		$data['beritaTerbaru'] = $this->perpus->getListBeritaTerbaru();
 
-        $this->load->view('template/navbar', $data);
-        $this->load->view('listBerita', $data);
-        $this->load->view('template/footer');
-    }
+		$this->load->view('template/navbar', $data);
+		$this->load->view('listBerita', $data);
+		$this->load->view('template/footer');
+	}
 
-    public function detail()
-    {
-        $id_berita = $this->uri->segment(3);
-        if ($id_berita) {
-            $berita = $this->perpus->getDetailBerita($id_berita);
+	public function detail()
+	{
+		$id_berita = $this->uri->segment(3);
+		if (!$id_berita) {
+			redirect('berita');
+		}
+		$berita = $this->perpus->getDetailBerita($id_berita);
 
-            if ($berita) {
-                $data['title'] = 'Berita';
-                $data['listKegiatan'] = $this->perpus->getListKegiatan();
-                $data['berita'] = $berita;
-                $data['listBerita'] = $this->perpus->getListBeritaTerbaru();
+		if (!$berita) {
+			redirect('my404');
+		}
+		$data['title'] = 'Berita';
+		$data['listKegiatan'] = $this->perpus->getListKegiatan();
+		$data['berita'] = $berita;
+		$data['listBerita'] = $this->perpus->getListBeritaTerbaru();
 
-                $this->load->view('template/navbar', $data);
-                $this->load->view('berita', $data);
-                $this->load->view('template/footer');
-            } else {
-                redirect('my404');
-            }
-        } else {
-            redirect('berita');
-        }
-    }
+		$this->load->view('template/navbar', $data);
+		$this->load->view('berita', $data);
+		$this->load->view('template/footer');
+	}
 
-    public function getListBerita()
-    {
-        $data = $this->perpus->getListBerita();
+	public function getListBerita()
+	{
+		$data = $this->perpus->getListBerita();
 
-        // echo json_encode($data);
-        return $this->output->set_output(json_encode($data));
-    }
+		return $this->output->set_output(json_encode($data));
+	}
 }

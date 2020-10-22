@@ -184,7 +184,7 @@ browser.maximize = function(button) {
 
         $('iframe', window.parent.document).each(function() {
             if (/^mce_\d+_ifr$/.test($(this).attr('id'))) {
-                id = parseInt($(this).attr('id').replace(/^mce_(\d+)_ifr$/, "$1"));
+                id = parseInt($(this).attr('id').replace(/^mce_(\d+)_ifr$/, "$1"), 10);
                 win = $('#mce_' + id, window.parent.document);
                 ifr = $('#mce_' + id + '_ifr', window.parent.document);
             }

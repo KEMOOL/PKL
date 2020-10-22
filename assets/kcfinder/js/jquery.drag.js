@@ -206,7 +206,7 @@
 							return e
 					},
 					element: function(b) {
-							if (b && (b.jquery || b.nodeType == 1)) return b
+							if (b && (b.jquery || b.nodeType === 1)) return b
 					},
 					flatten: function(b) {
 							return f.map(b, function(a) {

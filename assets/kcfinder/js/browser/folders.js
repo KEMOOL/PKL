@@ -36,7 +36,7 @@ browser.initFolders = function() {
     });
 
     if ($.browser.msie && $.browser.version &&
-        (parseInt($.browser.version.substr(0, 1)) < 8)
+        (parseInt($.browser.version.substr(0, 1), 10) < 8)
     ) {
         var fls = $('div.folder').get();
         var body = $('body').get(0);
@@ -194,7 +194,7 @@ browser.changeDir = function(dir) {
 
 browser.statusDir = function() {
     for (var i = 0, size = 0; i < this.files.length; i++)
-        size += parseInt(this.files[i].size);
+        size += parseInt(this.files[i].size, 10);
     size = this.humanSize(size);
     $('#fileinfo').html(this.files.length + ' ' + this.label("files") + ' (' + size + ')');
 };
